@@ -1,0 +1,12 @@
+<ion-view title="Details schilderij" class="oldscool" ng-controller="SavedResultCtrl as savedResultCtrl">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+	<img class="img" ng-if="savedResultCtrl.result.webImage" ng-src="{{savedResultCtrl.result.webImage.url}}" alt="{{savedResultCtrl.result.title}} Cover Image">
+	<h2 class="content oldscool">{{savedResultCtrl.result.title}}</h2>
+	<p class="content">{{savedResultCtrl.result.description}}</p>
+  </div>
+  	<div class="button center button-large" ng-click="savedResultCtrl.resultDelete();">Schilderij verwijderen</div>
+  </ion-content>
+</ion-view>
