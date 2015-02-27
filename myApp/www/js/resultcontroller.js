@@ -4,7 +4,7 @@ var resultController = function(){
   var _this = this;
 
   this.result = function(){
-  		
+  	{"JSON": "Hello, World"};
   }
 
 };  
