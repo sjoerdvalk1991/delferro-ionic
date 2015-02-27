@@ -1,6 +1,6 @@
-var app = angular.module('savedresult.controller', ['collection.service']);
+var app = angular.module('savedresult.controller', []);
 
 
 
-savedResultController.$inject = ['$stateParams', 'collectService', '$q', '$scope', '$ionicPopup', '$state'];
+savedResultController.$inject = [];
 app.controller('SavedResultCtrl', savedResultController);
