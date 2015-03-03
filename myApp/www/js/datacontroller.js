@@ -3,7 +3,8 @@ var app = angular.module('data.controller', []);
 var dataController = function($scope, $ionicPopup){
   var _this = this;
 
-  this.input = 0;
+  this.inputs = 0;
+  this.inputb = 0;
   
   $scope.showAlert = function() {
    var alertPopup = $ionicPopup.alert({
@@ -15,15 +16,26 @@ var dataController = function($scope, $ionicPopup){
    });
   };
 
-  this.increase = function(){
-  	_this.input++;
-  	if(_this.input == 3){
+  this.increases = function(){
+  	_this.inputs++;
+  	if(_this.inputs == 3){
   		$scope.showAlert();
   	}	
   }
 
-  this.decrease = function(){
-  	_this.input--;
+  this.decreases = function(){
+  	_this.inputs--;
+  }
+
+  this.increaseb = function(){
+    _this.inputb++;
+    if(_this.inputb == 3){
+      $scope.showAlert();
+    } 
+  }
+
+  this.decreaseb = function(){
+    _this.inputb--;
   }
 
 };  

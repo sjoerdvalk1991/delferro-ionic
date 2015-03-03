@@ -2,15 +2,94 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header">
-  <h1>Resultaten</h1>
-  <div>
-  	<h2 class="size-xxl text-center mtl">{{dataCtrl.input}}</h2>
-    <div class="range">
-      <i class="icon ion-ios7-minus-outline" ng-click="dataCtrl.decrease()"></i>
-      <input type="range" name="volume" min="0" max="100" ng-model="dataCtrl.input">
-      <i class="icon ion-ios7-plus-outline" ng-click="dataCtrl.increase()"></i>
-  	</div>
-  </div>	 
+  <ion-content class="has-header text-center">
+  <div class="row">
+    <div class="col col text-center">
+      <h1 class="header">Vul je schema in</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Aantal keer gestotterd</h3>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col col-40">
+      <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decreases()"></button>
+    </div>
+    <div class="col col-20">
+      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputs}}</h2>
+    </div>
+    <div class="col col-40"> 
+      <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increases()"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Oefeningen</h3>
+    </div>
+  </div>  
+  <ul class="list">
+
+    <li class="item item-checkbox">
+       <label class="checkbox">
+         <input type="checkbox">
+       </label>
+       Oefeningen gedaan
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Consequent geweest?</h3>
+    </div>
+  </div>  
+  <ul class="list">
+
+    <li class="item item-checkbox">
+       <label class="checkbox">
+         <input type="checkbox">
+       </label>
+        Consequent geweest? 
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Aantal keer gestopt</h3>
+    </div>
+  </div>     
+  <div class="row">
+    <div class="col col-40">
+      <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decreases()"></button>
+    </div>
+    <div class="col col-20">
+      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputs}}</h2>
+    </div>
+    <div class="col col-40"> 
+      <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increases()"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Aantal uitdagingen</h3>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col col-40">
+      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decreaseb()"></button>
+    </div>
+    <div class="col col-20">
+      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.inputb}}</h2>
+    </div>
+    <div class="col col-40"> 
+      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increaseb()"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="button button-block button-positive">
+      Resultaten opslaan
+      </button> 
+    </div>  
+  </div>
   </ion-content>
 </ion-view>
