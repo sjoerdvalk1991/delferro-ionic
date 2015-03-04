@@ -16,30 +16,29 @@ var dataController = function($scope, $ionicPopup){
    });
   };
 
-  this.increases = function(){
+  this.increaseA = function(){
   	_this.inputs++;
   	if(_this.inputs == 3){
   		$scope.showAlert();
   	}	
   }
 
-  this.decreases = function(){
+  this.decreaseA = function(){
   	_this.inputs--;
   }
 
-  this.increaseb = function(){
+  this.increaseB = function(){
     _this.inputb++;
     if(_this.inputb == 3){
       $scope.showAlert();
     } 
   }
 
-  this.decreaseb = function(){
+  this.decreaseB = function(){
     _this.inputb--;
   }
 
 };  
-
 
 dataController.$inject = ['$scope', '$ionicPopup'];
 app.controller('DataCtrl', dataController);
