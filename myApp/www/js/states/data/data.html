@@ -18,23 +18,12 @@
       <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decreaseA()"></button>
     </div>
     <div class="col col-20">
-      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputs}}</h2>
+      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputa}}</h2>
     </div>
     <div class="col col-40"> 
       <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increaseA()"></button>
     </div>
   </div>
-  <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Oefeningen</h3>
-    </div>
-  </div>  
-   <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker" ng-checked="item.checked">
-      {{item.text }}
-    </ion-checkbox>
-      <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
-      {{item.text }}
-    </ion-checkbox>
   <div class="row">
     <div class="col col text-center">
       <h3 class="header">Aantal keer gestopt</h3>
@@ -42,15 +31,26 @@
   </div>     
   <div class="row">
     <div class="col col-40">
-      <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decreaseA()"></button>
+      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decreaseB()"></button>
     </div>
     <div class="col col-20">
-      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputs}}</h2>
+      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.inputb}}</h2>
     </div>
     <div class="col col-40"> 
-      <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increaseA()"></button>
+      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increaseB()"></button>
     </div>
   </div>
+  <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Oefeningen</h3>
+    </div>
+  </div>  
+   <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
+      {{item.text }}
+    </ion-checkbox>
+      <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
+      {{item.text }}
+    </ion-checkbox>
   <div class="row">
     <div class="col col text-center">
       <h3 class="header">Aantal uitdagingen</h3>
@@ -58,18 +58,18 @@
   </div>    
   <div class="row">
     <div class="col col-40">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decreaseB()"></button>
+      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decreaseC()"></button>
     </div>
     <div class="col col-20">
-      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.inputb}}</h2>
+      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.inputc}}</h2>
     </div>
     <div class="col col-40"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increaseB()"></button>
+      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increaseC()"></button>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <button class="button button-block button-positive">
+      <button class="button button-block button-positive" ng-click="dataCtrl.dayresultSaver()">
       Resultaten opslaan
       </button> 
     </div>  
