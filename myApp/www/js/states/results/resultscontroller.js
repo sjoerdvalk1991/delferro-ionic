@@ -7,5 +7,5 @@ var resultsController = function(){
 };  
 
 
-resultController.$inject = [];
+resultsController.$inject = [];
 app.controller('ResultsCtrl', resultsController);

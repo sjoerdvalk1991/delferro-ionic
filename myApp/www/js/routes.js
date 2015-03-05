@@ -16,20 +16,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/menu.html",
     })
 
-    .state('app.search', {
-      url: "/search",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/search.html"
-        }
-      }
-    })
-
     .state('app.browse', {
       url: "/results",
       views: {
         'menuContent' :{
-          templateUrl: "templates/results.html",
+          templateUrl: "js/states/results/results.html",
         }
       }
     })
@@ -38,7 +29,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url:"/movies",
       views: {
         'menuContent' :{
-          templateUrl: "templates/movies.html",
+          templateUrl: "js/states/movies/movies.html",
         }
       }
     })
@@ -47,7 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url:"/result",
       views: {
         'menuContent' :{
-          templateUrl: "templates/result.html"
+          templateUrl: "js/states/results/result.html"
         }
       }  
     })
@@ -56,12 +47,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url:"/data",
       views: {
         'menuContent' : {
-          templateUrl: "templates/data.html"
+          templateUrl: "js/states/data/data.html"
         }
       }
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/results');
+  $urlRouterProvider.otherwise('/movies');
 });
 

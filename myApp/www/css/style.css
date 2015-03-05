@@ -238,6 +238,15 @@ ion-slide .box{
   }
 }
 
+.popup-title{
+  color: rgb(82, 101, 162);
+  font-family: 'Roboto', cursive !important;
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 0px;
+  letter-spacing: 1.20000004768372px;
+}
+
 .content {
 	width: 95%;
 	margin-left: 3%;
@@ -269,10 +278,6 @@ ion-slide .box{
   		-ms-transform: translateX(-50%);
   		transform: translateX(-50%);
 
-}
-.oldscool{
-  font-family: 'Roboto' !important;
-  font-size: 22px;
 }
 
 
