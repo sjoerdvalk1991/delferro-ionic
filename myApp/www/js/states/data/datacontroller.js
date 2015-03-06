@@ -3,9 +3,10 @@ var app = angular.module('data.controller', []);
 var dataController = function($scope, $ionicPopup, $filter){
   var _this = this;
 
-  this.inputa = 0;
-  this.inputb = 0;
-  this.inputc = 0;
+  this.stutter = 0;
+  this.stop = 0;
+  this.challenge = 0;
+  this.today = {};
 
   this.practise = [
     { text: "Oefeningen gedaan", checked: false }
@@ -14,16 +15,39 @@ var dataController = function($scope, $ionicPopup, $filter){
     { text: "Consequent geweest", checked: false }
   ];
 
+this.theDate = function(){
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd='0'+dd
+  } 
+
+  if(mm<10) {
+      mm='0'+mm
+  } 
+
+  today = dd+'-'+mm+'-'+yyyy;
+  return today;
+}  
+
+this.today = this.theDate();
+
   if(localStorage.getItem('dailyData')){
     dailySession = JSON.parse(localStorage.getItem('dailyData'));
-    console.log(dailySession);
-    _this.inputa = dailySession[0][0].value;
-    _this.inputb = dailySession[0][1].value;
-    _this.inputc = dailySession[0][2].value;
-    _this.practise[0].checked = dailySession[0][3].value;
-    _this.consequent[0].checked = dailySession[0][4].value;
-     var date = new Date();
-     console.log(date);
+    var count = dailySession.length;
+    dailyData = dailySession[count-1];
+    if(dailyData.date == _this.today){
+      _this.stutter = dailyData.stutter;
+      _this.stop = dailyData.stop;
+      _this.challenge = dailyData.challenge;
+      _this.practise[0].checked = dailyData.practise;
+      _this.consequent[0].checked = dailyData.consequent;
+    }else{
+
+    }  
   }else{
 
   }  
@@ -59,43 +83,29 @@ var dataController = function($scope, $ionicPopup, $filter){
   };
 
 
-  this.increaseA = function(){
-  	_this.inputa++;
-  	if(_this.inputa == 3){
-  		$scope.showAlert();
-  	}	
+  this.increase = function(type){
+    if(type == 'stotteren'){
+     _this.stutter++;
+    }else if(type == 'stoppen'){
+      _this.stop++;
+    }else if(type == 'uitdaging'){   
+      _this.challenge++;
+    }else{
+      
+    }	
   }
 
-  this.decreaseA = function(){
-    if(_this.inputa >= 0){
-  	 _this.inputa--;
-    }
-  }
+  this.decrease = function(type){
+    if((type == 'stotteren') && (_this.stutter >= 0)){
+  	 _this.stutter--;
+    }else if((type == 'stoppen')&&(_this.stop >= 0)){
+      _this.stop--;
+    }else if((type == 'uitdaging')&&(_this.challenge >= 0)){   
+      _this.challenge--;
+    }else{
 
-  this.increaseB = function(){
-    _this.inputb++;
-    if(_this.inputb == 3){
-      $scope.showAlert();
-    } 
-  }
-
-  this.decreaseB = function(){
-    if(_this.inputa >= 0){
-      _this.inputb--;
-    }  
-  }
-
-
-  this.increaseC = function(){
-    _this.inputc++;
-    if(_this.inputb == 3){
-      $scope.showAlert();
-    } 
-  }
-
-  this.decreaseC = function(){
-    _this.inputc--;
-  }
+    }   
+  } 
 
   this.practiseChecker = function(){
     var checkValue = _this.practise[0].checked;
@@ -107,7 +117,6 @@ var dataController = function($scope, $ionicPopup, $filter){
   this.consequentChecker = function(){
     var checkValue = _this.consequent[0].checked;
     if(checkValue == true){
-     
       $scope.showAlertPractise();
     }
   }
@@ -115,24 +124,50 @@ var dataController = function($scope, $ionicPopup, $filter){
   this.dayresultSaver = function(){
     if(!localStorage.getItem('dailyData')){  
       var savedData = [];
-      var stutters = this.inputa;
-      var dailyData = [
-        {text: 'Stotteren', value: _this.inputa},
-        {text: 'Stoppen', value: _this.inputb},
-        {text: 'Uitdagingen', value:  _this.inputc},
-        {text: 'Oefeningen', value:  _this.practise[0].checked},
-        {text: 'Consequent', value:  _this.consequent[0].checked}
-      ];  
+
+      var dailyData = {
+        'date': _this.today,
+        'stutter' : _this.stutter,
+        'stop': _this.stop,
+        'challenge': _this.challenge,
+        'practise': _this.practise[0].checked,
+        'consequent': _this.consequent[0].checked,
+      }
+
       savedData.push(dailyData);
       localStorage.setItem('dailyData', JSON.stringify(savedData));
       $scope.showAlertSaved();
     }else{
-
-    }  
-
-  };
-
-
+      var dailySession = JSON.parse(localStorage.getItem('dailyData'));
+      var count = dailySession.length;
+      var dailyCount = dailySession[count-1];
+        if(dailyCount.date == _this.today){
+          dailySession.slice(-1);
+          var dailyData = {
+            'date': _this.today,
+            'stutter' : _this.stutter,
+            'stop': _this.stop,
+            'challenge': _this.challenge,
+            'practise': _this.practise[0].checked,
+            'consequent': _this.consequent[0].checked,
+          }
+          dailySession.push(dailyData);
+          localStorage.setItem('dailyData', JSON.stringify(dailySession));
+          $scope.showAlertSaved();  
+        }else{
+          var dailyData = {
+            'date': _this.today,
+            'stutter' : _this.stutter,
+            'stop': _this.stop,
+            'challenge': _this.challenge,
+            'practise': _this.practise[0].checked,
+            'consequent': _this.consequent[0].checked,
+          }
+          dailySession.push(dailyData);
+          localStorage.setItem('dailyData', JSON.stringify(dailySession));
+        }
+    }
+  }    
 };  
 
 dataController.$inject = ['$scope', '$ionicPopup', '$filter'];
