@@ -8,6 +8,14 @@ var appController = function($scope, $ionicModal, $timeout, $location, $q){
 
   this.hasMenu = true;
 
+  this.practise = [
+    { text: "Oefeningen melding", checked: false }
+  ];
+
+  if(localStorage.getItem('practisewarning')){
+    _this.practise[0].checked = JSON.parse(localStorage.getItem('practisewarning'));  
+  }
+
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -35,6 +43,17 @@ var appController = function($scope, $ionicModal, $timeout, $location, $q){
       _this.closeLogin();
     }, 1000);
   };
+
+  this.warning = function(){
+    if(!localStorage.getItem('practisewarning')){
+      var checkValue = _this.practise[0].checked;
+      if(checkValue === true){
+        localStorage.setItem('practisewarning', JSON.stringify(checkValue));
+      }
+    }else{
+      localStorage.removeItem('practisewarning');  
+    }  
+  }
 }
 appController.$inject = ['$scope', '$ionicModal', '$timeout','$location'];
 app.controller('AppCtrl', appController);

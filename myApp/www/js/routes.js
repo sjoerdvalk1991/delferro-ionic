@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('app', {
       url: "/app",
       abstract: true,
-      templateUrl: "templates/menu.html",
+      templateUrl: "js/inc/menu/menu.html",
     })
 
     .state('app.browse', {

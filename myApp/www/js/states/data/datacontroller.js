@@ -1,6 +1,6 @@
-var app = angular.module('data.controller', []);
+var app = angular.module('data.controller', ['app.controller']);
 
-var dataController = function($scope, $ionicPopup, $filter){
+var dataController = function($rootScope, $scope, $ionicPopup, $filter){
   var _this = this;
 
   this.stutter = 0;
@@ -15,25 +15,25 @@ var dataController = function($scope, $ionicPopup, $filter){
     { text: "Consequent geweest", checked: false }
   ];
 
-this.theDate = function(){
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1; //January is 0!
-  var yyyy = today.getFullYear();
+  this.theDate = function(){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
 
-  if(dd<10) {
-      dd='0'+dd
-  } 
+    if(dd<10) {
+        dd='0'+dd
+    } 
 
-  if(mm<10) {
-      mm='0'+mm
-  } 
+    if(mm<10) {
+        mm='0'+mm
+    } 
 
-  today = dd+'-'+mm+'-'+yyyy;
-  return today;
-}  
+    today = dd+'-'+mm+'-'+yyyy;
+    return today;
+  }  
 
-this.today = this.theDate();
+  this.today = this.theDate();
 
   if(localStorage.getItem('dailyData')){
     dailySession = JSON.parse(localStorage.getItem('dailyData'));
@@ -50,7 +50,21 @@ this.today = this.theDate();
     }  
   }else{
 
-  }  
+  }
+
+  $scope.showPractise = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Zet hem op!',
+     template: 'Heb je de oefeningen al gedaan?'
+   });
+   alertPopup.then(function(res) {
+     console.log('Thank you for not eating my delicious ice cream cone');
+   });
+  };  
+
+  if(localStorage.getItem('practisewarning')){
+    $scope.showPractise();
+  }
   
   $scope.showAlertSaved = function() {
    var alertPopup = $ionicPopup.alert({
@@ -141,34 +155,34 @@ this.today = this.theDate();
       var dailySession = JSON.parse(localStorage.getItem('dailyData'));
       var count = dailySession.length;
       var dailyCount = dailySession[count-1];
-        if(dailyCount.date == _this.today){
-          dailySession.slice(-1);
-          var dailyData = {
-            'date': _this.today,
-            'stutter' : _this.stutter,
-            'stop': _this.stop,
-            'challenge': _this.challenge,
-            'practise': _this.practise[0].checked,
-            'consequent': _this.consequent[0].checked,
-          }
-          dailySession.push(dailyData);
-          localStorage.setItem('dailyData', JSON.stringify(dailySession));
-          $scope.showAlertSaved();  
-        }else{
-          var dailyData = {
-            'date': _this.today,
-            'stutter' : _this.stutter,
-            'stop': _this.stop,
-            'challenge': _this.challenge,
-            'practise': _this.practise[0].checked,
-            'consequent': _this.consequent[0].checked,
-          }
-          dailySession.push(dailyData);
-          localStorage.setItem('dailyData', JSON.stringify(dailySession));
+      if(dailyCount.date == _this.today){
+        dailySession.slice(-1);
+        var dailyData = {
+          'date': _this.today,
+          'stutter' : _this.stutter,
+          'stop': _this.stop,
+          'challenge': _this.challenge,
+          'practise': _this.practise[0].checked,
+          'consequent': _this.consequent[0].checked,
         }
+        dailySession.push(dailyData);
+        localStorage.setItem('dailyData', JSON.stringify(dailySession));
+        $scope.showAlertSaved();  
+      }else{
+        var dailyData = {
+          'date': _this.today,
+          'stutter' : _this.stutter,
+          'stop': _this.stop,
+          'challenge': _this.challenge,
+          'practise': _this.practise[0].checked,
+          'consequent': _this.consequent[0].checked,
+        }
+        dailySession.push(dailyData);
+        localStorage.setItem('dailyData', JSON.stringify(dailySession));
+      }
     }
   }    
 };  
 
-dataController.$inject = ['$scope', '$ionicPopup', '$filter'];
+dataController.$inject = ['$rootScope', '$scope', '$ionicPopup', '$filter'];
 app.controller('DataCtrl', dataController);
