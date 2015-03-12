@@ -147,16 +147,15 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
         'practise': _this.practise[0].checked,
         'consequent': _this.consequent[0].checked,
       }
-
       savedData.push(dailyData);
       localStorage.setItem('dailyData', JSON.stringify(savedData));
       $scope.showAlertSaved();
     }else{
       var dailySession = JSON.parse(localStorage.getItem('dailyData'));
-      var count = dailySession.length;
-      var dailyCount = dailySession[count-1];
-      if(dailyCount.date == _this.today){
-        dailySession.slice(-1);
+      var dailyCount = dailySession[(dailySession.length -1)];
+      console.log(dailyCount.date, _this.today);
+      if(dailyCount.date === _this.today){
+        dailySession.splice(-1, 1);
         var dailyData = {
           'date': _this.today,
           'stutter' : _this.stutter,
