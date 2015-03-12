@@ -4,7 +4,7 @@ var resultController = function(params){
   var _this = this;
   this.result = {};
 
-  _this.resultCheck = function(params){
+  this.resultCheck = function(params){
   	var results = JSON.parse(localStorage.getItem('dailyData'));
     var i = 0;
     for (; i < results.length; i++) {
