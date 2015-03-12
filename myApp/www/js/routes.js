@@ -35,7 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('app.result', {
-      url:"/result",
+      url:"/result/:date",
       views: {
         'menuContent' :{
           templateUrl: "js/states/results/result.html"
