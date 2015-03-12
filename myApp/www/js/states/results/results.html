@@ -3,9 +3,14 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-    <label class="item item-input">
-      <span class="input-label">Date</span>
-      <input type="date">
-    </label>
+  	<ion-list ng-repeat="result in resultsCtrl.results">
+	    <a class="text-nodeco" href="#/app/result/{{result.date}}">
+	      <ion-item class="item item-thumbnail-left">
+	        <img src="http://placehold.it/400x400">
+	        <h2>Datum: {{result.date}}</h2>
+	        <p>Dagelijks resultaat</p>
+	      </ion-item>
+	    </a>
+    </ion-list>  
   </ion-content>
 </ion-view>
