@@ -8,7 +8,6 @@
 
   <ion-side-menu side="left">
     <header class="bar bar-header bar-stable">
-        <button menu-close menu-toggle="right"class="button button-icon icon ion-navicon"></button>
       <h1 class="title">Menu</h1>
     </header>
     <ion-content class="has-header">
@@ -17,17 +16,20 @@
           Login
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/results">
-          results
+          resultaten
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/movies">
-          Movies
+          Oefeningen
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/data">
-          Data
+          Dagelijks schema
         </ion-item>
          <ion-checkbox ng-repeat="item in app.practise" ng-model="item.checked" ng-change="app.warning()" ng-checked="item.checked">
           {{item.text }}
-        </ion-checkbox>  
+        </ion-checkbox>
+        <div class="text-center mtxxl">
+          <img class="box-shadow" src="img/DF-logo.png">  
+        </div>
       </ion-list>
     </ion-content>
   </ion-side-menu>

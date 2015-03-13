@@ -67,11 +67,15 @@ h3.header{
 }
 
 .nav-clear{
-  background-color: #EF4E3A;
+  background-color: #E6130D;
+}
+
+.bar-stable{
+  background-color: #E6130D !important;
 }
 
 .menu{
-  background-color: #EF4E3A !important;
+  background-color: #E6130D !important;
 }
 
 .button{
@@ -277,7 +281,12 @@ ion-slide .box{
 	-webkit-transform: translateX(-50%);
   		-ms-transform: translateX(-50%);
   		transform: translateX(-50%);
+}
 
+.slice{
+  font-size: 1.1em;
+  fill: #fff;
+  font-family: Helvetica;
 }
 
 
