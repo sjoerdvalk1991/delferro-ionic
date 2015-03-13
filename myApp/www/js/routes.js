@@ -1,6 +1,7 @@
 var app = angular.module('starter', [
   'ionic',
   'app.controller',
+  'tips.controller',
   'results.controller',
   'result.controller',
   'movies.controller',
@@ -30,6 +31,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent' :{
           templateUrl: "js/states/movies/movies.html",
+        }
+      }
+    })
+
+    .state('app.tips', {
+      url:"/tips",
+      views: {
+        'menuContent' :{
+          templateUrl: "js/states/tips/tips.html"
         }
       }
     })
