@@ -37,21 +37,21 @@ var resultController = function(params){
     // select paths, use arc generator to draw
     var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
     arcs.append("svg:path")
-        .attr("fill", function(d, i){
-            return color(i);
-        })
-        .attr("d", function (d) {
-            // log the result of the arc generator to show how cool it is :)
-            return arc(d);
-        });
+      .attr("fill", function(d, i){
+          return color(i);
+      })
+      .attr("d", function (d) {
+          // log the result of the arc generator to show how cool it is :)
+          return arc(d);
+      });
 
     // add the text
     arcs.append("svg:text").attr("transform", function(d){
-          d.innerRadius = 0;
-          d.outerRadius = r;
-        return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
-        return data[i].label;}
-        );
+      d.innerRadius = 0;
+      d.outerRadius = r;
+    return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
+    return data[i].label;}
+    );
       
   }
 
