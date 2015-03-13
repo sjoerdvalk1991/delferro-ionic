@@ -147,6 +147,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
         'practise': _this.practise[0].checked,
         'consequent': _this.consequent[0].checked,
       }
+      
       savedData.push(dailyData);
       localStorage.setItem('dailyData', JSON.stringify(savedData));
       $scope.showAlertSaved();
