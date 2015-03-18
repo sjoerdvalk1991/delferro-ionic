@@ -142,6 +142,9 @@ h2{
   background-color: #EF4E3A;
 }
 
+.white{
+  color: #fff !important;
+}
 
 .slide-wrapper{
   height: 100%;
