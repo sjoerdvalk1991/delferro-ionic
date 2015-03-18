@@ -42,6 +42,10 @@ h3.header{
   margin-top: 20px !important;
 }
 
+.mt-44{
+  margin-top: 44px !important;
+}
+
 .blue{
   background-color: blue;
 }
@@ -287,6 +291,15 @@ ion-slide .box{
   font-size: 1.1em;
   fill: #fff;
   font-family: Helvetica;
+}
+
+.logo-size{
+  width: 200px;
+  height: auto;
+}
+
+.tab-item{
+  font-family: 'Roboto', cursive !important;
 }
 
 

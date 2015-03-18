@@ -6,6 +6,8 @@ var app = angular.module('starter', [
   'result.controller',
   'movies.controller',
   'data.controller',
+  'feed.controller',
+  'tip.services',
  ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -58,6 +60,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent' : {
           templateUrl: "js/states/data/data.html"
+        }
+      }
+    })
+
+    .state('app.feed',{
+      url:"/feed",
+      views: {
+        'menuContent' : {
+          templateUrl: "js/states/feed/feed.html"
         }
       }
     })

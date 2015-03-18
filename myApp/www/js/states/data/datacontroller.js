@@ -171,6 +171,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
         $scope.showAlertSaved();  
       }else{
+
         var dailyData = {
           'date': _this.today,
           'stutter' : _this.stutter,
@@ -179,6 +180,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
         }
+        
         dailySession.push(dailyData);
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
       }

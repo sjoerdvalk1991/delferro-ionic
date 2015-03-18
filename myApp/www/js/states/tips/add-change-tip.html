@@ -1,0 +1,28 @@
+  <div class="modal">
+    <div class="bar bar-header bar-assertive">
+      <ion-button class="button icon-left ion-chevron-left button-clear" ng-click="tipsCtrl.leaveAddChangeDialog()">Terug</ion-button>
+  		<h1 class="title">Voeg tip toe</h1>
+	</div>
+    <ion-content has-header="true">
+		<form class="mt-44" name="form" ng-model="form">
+			<ion-list class="">
+				  <li class="item item-input item-stacked-label">
+				  	<span class="input-label">Titel</span>
+				    <input type="text" placeholder="" name="title" ng-model="title" required />					
+				  </li>
+				   <li class="item item-input item-stacked-label">
+				  	<span class="input-label">Beschrijving</span>
+				    <input type="text" placeholder="" name="description" ng-model="description" required />					
+				  </li>
+				<div class="row text-center">
+					<div class="col col-40">   
+						<ion-button ng-show="action == 'add'" ng-init="tipsCtrl.saveEmpty(form)" class="button button-block button-positive" ng-click="tipsCtrl.addItem(form)">
+				  				Toevoegen
+						</ion-button>
+					</div>
+				</div>		
+			</ion-list>
+		</form>
+    </ion-content>
+    
+  </div>
