@@ -70,6 +70,10 @@ h3.header{
   color: #fff;
 }
 
+.ion-navicon{
+  color: #fff !important;
+}
+
 .nav-clear{
   background-color: #E6130D;
 }
@@ -94,8 +98,8 @@ h3.header{
   text-decoration: none;
 }
 
-h1{
-  color: #000;
+h1.header{
+  color: #000 !important;
   font-family: 'Roboto', cursive !important;
 }
 
@@ -240,4 +244,23 @@ ion-slide .box{
   font-family: 'Roboto', cursive !important;
 }
 
+h1{
+  color: #fff !important;
+}
+
+/*--------------*/
+  /*--Datecroll-*/
+/*--------------*/
+
+.dwwl {
+  width: 100px !important;
+}
+
+.dw-ul{
+  background-color: #fff;
+}
+
+.dw{
+  background-color: #000;
+}
 

@@ -15,11 +15,16 @@
 				    <input type="text" placeholder="" name="description" ng-model="description" required />					
 				  </li>
 				<div class="row text-center">
-					<div class="col col-40">   
-						<ion-button ng-show="action == 'add'" ng-init="tipsCtrl.saveEmpty(form)" class="button button-block button-positive" ng-click="tipsCtrl.addItem(form)">
-				  				Toevoegen
+					<div class="col col-40">
+						<ion-button ng-init="" class="button button-block button-positive" ng-click="tipsCtrl.addImage()">
+				  			Foto Toevoegen
 						</ion-button>
-					</div>
+					</div>	   
+					<div class="col col-40">
+						<ion-button ng-init="tipsCtrl.saveEmpty(form)" class="button button-block button-positive" ng-click="tipsCtrl.addItem(form)">
+				  			Toevoegen
+						</ion-button>
+					</div>				
 				</div>		
 			</ion-list>
 		</form>

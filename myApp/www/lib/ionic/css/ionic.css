@@ -2207,7 +2207,7 @@ body, .ionic-body {
   color: #000;
   word-wrap: break-word;
   font-size: 14px;
-  font-family: "DanielScript", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 20px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
@@ -2506,7 +2506,7 @@ ion-nav-view {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff; }
+  background-color: #000; }
 
 /**
  * Typography
@@ -2531,9 +2531,9 @@ cite {
   text-align: center; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #fff;
+  color: #000;
   font-weight: 500;
-  font-family: 'Marck Script', cursive !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
     font-weight: normal;
@@ -2614,7 +2614,7 @@ address {
 
 a.subdued {
   padding-right: 10px;
-  color: #fff;
+  color: #888;
   text-decoration: none; }
   a.subdued:hover {
     text-decoration: none; }
@@ -2681,7 +2681,7 @@ a.subdued {
 .action-sheet-group {
   margin-bottom: 5px;
   border-radius: 3px 3px 3px 3px;
-  background-color: #000; }
+  background-color: #fff; }
   .action-sheet-group .button {
     border-width: 1px 0px 0px 0px;
     border-radius: 0; }
@@ -2746,7 +2746,7 @@ a.subdued {
   border-style: solid;
   border-top: 1px solid transparent;
   border-bottom: 1px solid #ddd;
-  background-color: #000;
+  background-color: white;
   /* border-width: 1px will actually create 2 device pixels on retina */
   /* this nifty trick sets an actual 1px border on hi-res displays */
   background-size: 0; }
@@ -2774,7 +2774,7 @@ a.subdued {
       background: transparent; }
   .bar.bar-light {
     border-color: #ddd;
-    background-color: #000;
+    background-color: white;
     background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
     color: #444; }
     .bar.bar-light .title {
@@ -2782,14 +2782,14 @@ a.subdued {
     .bar.bar-light.bar-footer {
       background-image: linear-gradient(180deg, #ddd, #ddd 50%, transparent 50%); }
   .bar.bar-stable {
-    border-color: #5F021F;
-    background-color: #5F021F;
-    background-image: linear-gradient(0deg, #5F021F, #5F021F 50%, transparent 50%);
-    color: #fff; }
+    border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: #444; }
     .bar.bar-stable .title {
-      color: #fff; }
+      color: #444; }
     .bar.bar-stable.bar-footer {
-      background-image: linear-gradient(180deg, #5F021F, #5F021F 50%, transparent 50%); }
+      background-image: linear-gradient(180deg, #b2b2b2, #b2b2b2 50%, transparent 50%); }
   .bar.bar-positive {
     border-color: #145fd7;
     background-color: #4a87ee;
@@ -2947,15 +2947,15 @@ a.subdued {
     background: none; }
 
 .bar-stable .button {
-  border-color: #5F021F;
-  background-color: #5F021F;
-  color: #fff; }
+  border-color: #b2b2b2;
+  background-color: #f8f8f8;
+  color: #444; }
   .bar-stable .button:hover {
-    color: #fff;
+    color: #444;
     text-decoration: none; }
   .bar-stable .button.active, .bar-stable .button.activated {
-    border-color: #fff;
-    background-color: #5F021F;
+    border-color: #a2a2a2;
+    background-color: #e5e5e5;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15); }
   .bar-stable .button.button-clear {
     border-color: transparent;
@@ -3167,8 +3167,8 @@ a.subdued {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   border-color: #b2b2b2;
-  background-color: #5F021F;
-  background-image: linear-gradient(0deg, #5F021F, #5F021F 50%, transparent 50%);
+  background-color: #f8f8f8;
+  background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
   color: #444;
   position: absolute;
   bottom: 0;
@@ -3202,13 +3202,13 @@ a.subdued {
     color: #fff; }
 
 .tabs-stable > .tabs, .tabs.tabs-stable {
-  border-color: #fff;
-  background-color: #5F021F;
+  border-color: #b2b2b2;
+  background-color: #f8f8f8;
   background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
   color: #444; }
   .tabs-stable > .tabs .tab-item .badge, .tabs.tabs-stable .tab-item .badge {
-    background-color: #5F021F;
-    color: #fff; }
+    background-color: #444;
+    color: #f8f8f8; }
 
 .tabs-positive > .tabs, .tabs.tabs-positive {
   border-color: #145fd7;
@@ -3303,7 +3303,7 @@ a.subdued {
 .tabs-striped.tabs-top .tab-item.tab-item-active .badge, .tabs-striped.tabs-top .tab-item.active .badge, .tabs-striped.tabs-top .tab-item.activated .badge {
   top: 4%; }
 .tabs-striped.tabs-stable .tabs {
-  background-color: #5F021F; }
+  background-color: #444; }
 .tabs-striped.tabs-stable .tab-item {
   color: rgba(248, 248, 248, 0.4);
   opacity: 1; }
@@ -3311,7 +3311,7 @@ a.subdued {
     opacity: 0.4; }
   .tabs-striped.tabs-stable .tab-item.tab-item-active, .tabs-striped.tabs-stable .tab-item.active, .tabs-striped.tabs-stable .tab-item.activated {
     margin-top: -2px;
-    color: #fff;
+    color: #f8f8f8;
     border-style: solid;
     border-width: 2px 0 0 0;
     border-color: #f8f8f8; }
@@ -3449,7 +3449,7 @@ a.subdued {
 .tabs-striped.tabs-background-light .tabs {
   background-color: #fff; }
 .tabs-striped.tabs-background-stable .tabs {
-  background-color: #5F021F; }
+  background-color: #f8f8f8; }
 .tabs-striped.tabs-background-positive .tabs {
   background-color: #4a87ee; }
 .tabs-striped.tabs-background-calm .tabs {
@@ -3633,7 +3633,7 @@ a.subdued {
   white-space: nowrap;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Marck Script" "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   opacity: 0.7; }
   .tab-item:hover {
     cursor: pointer; }
@@ -3692,7 +3692,7 @@ a.subdued {
   .tab-item.tab-item-active.tab-item-light, .tab-item.active.tab-item-light, .tab-item.activated.tab-item-light {
     color: #fff; }
   .tab-item.tab-item-active.tab-item-stable, .tab-item.active.tab-item-stable, .tab-item.activated.tab-item-stable {
-    color: #fff; }
+    color: #f8f8f8; }
   .tab-item.tab-item-active.tab-item-positive, .tab-item.active.tab-item-positive, .tab-item.activated.tab-item-positive {
     color: #4a87ee; }
   .tab-item.tab-item-active.tab-item-calm, .tab-item.active.tab-item-calm, .tab-item.activated.tab-item-calm {
@@ -4939,7 +4939,7 @@ label, input, button, select, textarea {
   line-height: 1.42857; }
 
 input, button, select, textarea {
-  font-family: "DanielScript", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 .item-input {
   display: -webkit-box;
@@ -7628,7 +7628,7 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   color: #f8f8f8; }
 
 .stable-bg {
-  background-color: #5F021F; }
+  background-color: #f8f8f8; }
 
 .stable-border {
   border-color: #b2b2b2; }
@@ -7705,9 +7705,9 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
  * Apply roboto font
  */
 .roboto {
-  font-family: "DanielScript", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
   .roboto input {
-    font-family: "DanielScript", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 /*
 .platform-android {
