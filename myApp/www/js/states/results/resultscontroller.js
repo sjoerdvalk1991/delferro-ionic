@@ -18,12 +18,12 @@ var resultsController = function(){
 
 			$.scroller.themes.jqm = {
 				defaults: {
-				jqmBody: 'c',
-				jqmHeader:'b',
-				jqmWheel: 'd',
-				jqmClickPick: 'c',
-				jqmSet: 'b',
-				jqmCancel: 'c'
+					jqmBody: 'c',
+					jqmHeader:'b',
+					jqmWheel: 'd',
+					jqmClickPick: 'c',
+					jqmSet: 'b',
+					jqmCancel: 'c'
 				},
 				init: function(elm, inst) {
 					var s = inst.settings;

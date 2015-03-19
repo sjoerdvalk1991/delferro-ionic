@@ -58,7 +58,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
      template: 'Heb je de oefeningen al gedaan?'
    });
    alertPopup.then(function(res) {
-     console.log('Thank you for not eating my delicious ice cream cone');
+     console.log('Warning 0');
    });
   };  
 
@@ -72,7 +72,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
      template: 'Melding'
    });
    alertPopup.then(function(res) {
-     console.log('Thank you for not eating my delicious ice cream cone');
+     console.log('warning 1');
    });
   };
 
@@ -82,7 +82,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
      template: 'Melding'
    });
    alertPopup.then(function(res) {
-     console.log('Thank you for not eating my delicious ice cream cone');
+     console.log('Pas op');
    });
   };
 
