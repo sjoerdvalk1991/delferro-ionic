@@ -11,9 +11,16 @@
 	        <p>Dagelijks resultaat</p>
 	      </ion-item>
 	    </a>
-    </ion-list>
-    	<div data-role="content text-center">
-        <input name="demo" id="demo" class="i-txt" />
-      </div>      
+    </ion-list> 
+    <div class="card">
+      <label class="item item-input">
+        <input type="text" 
+          placeholder="Pick date" 
+          ng-model="datepicker" 
+          name="datepicker" 
+          ng-click="resultsCtrl.opendateModal()" 
+          readonly>
+        </label>
+      </div>   
   </ion-content>
 </ion-view>

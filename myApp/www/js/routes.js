@@ -9,6 +9,7 @@ var app = angular.module('starter', [
   'data.controller',
   'feed.controller',
   'tip.services',
+  'pickadate',
  ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
