@@ -3,29 +3,13 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-  	<ion-list>
-	    <a class="text-nodeco" href="#/app/tips">
-	      <ion-item class="item item-thumbnail-left">
-	        <img style="width: 100; height: 100%;" src="img/delferro-oefening-thumb.jpg">
-	        <h2>Tip voor een ontspannende oefening.</h2>
-	        <p>Met deze tip merk je dat de oefening een stuk fijner wordt.</p>
-	      </ion-item>
-	    </a>
-	    <a class="text-nodeco" href="#/app/tips">
-	      <ion-item class="item item-thumbnail-left">
-	        <img style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
-	        <h2>Tip tegen de zenuwen.</h2>
-	        <p>Doe wat oefeningen voor je gaat praten zodat je wat meer ontspannen bent.</p>
-	      </ion-item>
-	    </a>
-	    <a class="text-nodeco" href="#/app/tips">
-	      <ion-item class="item item-thumbnail-left">
-	        <img style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
-	        <h2>Tip tegen de zenuwen</h2>
-	        <p>Doe wat oefeningen voor je gaat praten zodat je wat meer ontspannen bent.</p>
-	      </ion-item>
-	    </a>
-    </ion-list>
+  	<ion-list ng-repeat="item in tipsCtrl.items">
+      <ion-item class="item item-thumbnail-left" ng-click="tipsCtrl.idCheck(item.id)">
+        <img style="width: 100; height: 100%;" src="img/delferro-oefening-thumb.jpg">
+        <h2>{{item.title}}</h2>
+        <p>{{item.text}}</p>
+      </ion-item>
+	  </ion-list>  
     <div class="row text-center">
 			<div class="col col-40"> 
      		<button class="button-block right button button-positive icon ion-plus" ng-click="tipsCtrl.showAddChangeDialog('add')">  Voeg een tip toe

@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.bg-white{
+  background-color: #ffffff;
+}
+
 .plxxl{
   padding-left: 25px;
 }
@@ -196,7 +200,6 @@ ion-slide .box{
 .item-content:active{
   background-color: #000 !important;
 }
-
 
 .popup-title{
   color: rgb(82, 101, 162);

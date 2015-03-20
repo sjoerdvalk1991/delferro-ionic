@@ -3,7 +3,6 @@ var app = angular.module('results.controller', ['app.controller', 'pickadate']);
 var resultsController = function($scope, $ionicModal){
   var _this = this;
   _this.results = JSON.parse(localStorage.getItem('dailyData'));
-     
   $ionicModal.fromTemplateUrl('js/states/results/date.html', 
       function(modal) {
           $scope.datemodal = modal;
