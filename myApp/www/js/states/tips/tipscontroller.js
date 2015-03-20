@@ -13,10 +13,10 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
 	});
 
   this.urlForImage = function(imageName) {
-  var name = imageName.substr(imageName.lastIndexOf('/') + 1);
-  var trueOrigin = cordova.file.dataDirectory + name;
-  return trueOrigin;
-}
+    var name = imageName.substr(imageName.lastIndexOf('/') + 1);
+    var trueOrigin = cordova.file.dataDirectory + name;
+    return trueOrigin;
+  }
 
  	this.showAddChangeDialog = function(action) {
     $scope.action = action;

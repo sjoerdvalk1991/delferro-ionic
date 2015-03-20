@@ -54,11 +54,11 @@
           '<div class="pickadate">' +
             '<div class="pickadate-header">' +
               '<div class="pickadate-controls">' +
-                '<a href="" class="pickadate-prev" ng-click="changeMonth(-1)" ng-show="allowPrevMonth">prev</a>' +
-                '<a href="" class="pickadate-next" ng-click="changeMonth(1)" ng-show="allowNextMonth">next</a>' +
+                '<a href="" class="pickadate-prev" ng-click="changeMonth(-1)" ng-show="allowPrevMonth">Vorige</a>' +
+                '<a href="" class="pickadate-next" ng-click="changeMonth(1)" ng-show="allowNextMonth">Volgende</a>' +
               '</div>'+
               '<h3 class="pickadate-centered-heading">' +
-                '{{currentDate | date:"MMMM yyyy"}}' +
+                '{{month}} {{currentDate | date:"yyyy"}}' +
               '</h3>' +
             '</div>' +
             '<div class="pickadate-body">' +
@@ -83,7 +83,7 @@
               disabledDates = scope.disabledDates || [],
               currentDate   = new Date();
 
-          scope.dayNames    = $locale.DATETIME_FORMATS['SHORTDAY'];
+          scope.dayNames    = ['Ma', 'Di', 'Woe', 'Do', 'Vri', 'Zat', 'Zon'];
           scope.currentDate = currentDate;
 
           scope.render = function(initialDate) {
@@ -143,7 +143,12 @@
               // if the initial date set by the user is in the disabled dates list, unset it
               scope.setDate({});
             }
+            var monthNames = ["januari", "februari", "maart", "april", "mei", "juni",
+                              "juli", "augustus", "september", "oktober", "november", "december"
+                            ];
+            var month = monthNames[(currentDate.getMonth())-1];
             scope.render(currentDate);
+            scope.month = month;
           };
 
           scope.changeMonth = function (offset) {
@@ -153,7 +158,12 @@
             // behaviour
             currentDate.setDate(1);
             currentDate.setMonth(currentDate.getMonth() + offset);
+            var monthNames = ["januari", "februari", "maart", "april", "mei", "juni",
+                              "juli", "augustus", "september", "oktober", "november", "december"
+                            ];
+            var month = monthNames[(currentDate.getMonth())-1];
             scope.render(currentDate);
+            scope.month = month;
           };
 
           function isDateDisabled(dateObj) {

@@ -3,16 +3,7 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
-  	<ion-list ng-repeat="result in resultsCtrl.results">
-	    <a class="text-nodeco" href="#/app/result/{{result.date}}">
-	      <ion-item class="item item-thumbnail-left">
-	        <img style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
-	        <h2>Datum: {{result.date}}</h2>
-	        <p>Dagelijks resultaat</p>
-	      </ion-item>
-	    </a>
-    </ion-list> 
-    <div class="card">
+    <div class="card datepick">
       <label class="item item-input">
         <input type="text" 
           placeholder="Pick date" 
@@ -21,6 +12,18 @@
           ng-click="resultsCtrl.opendateModal()" 
           readonly>
         </label>
-      </div>   
+    </div> 
+    <div class="mt-44">  
+    	<ion-list ng-repeat="result in resultsCtrl.results">
+  	    <a class="text-nodeco" href="#/app/result/{{result.date}}">
+  	      <ion-item class="item item-thumbnail-left">
+  	        <img style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
+  	        <h2>Datum: {{result.date}}</h2>
+  	        <p>Dagelijks resultaat</p>
+  	      </ion-item>
+  	    </a>
+      </ion-list>
+    </div>   
+  
   </ion-content>
 </ion-view>

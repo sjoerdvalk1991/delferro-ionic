@@ -12,7 +12,7 @@ var resultsController = function($scope, $ionicModal){
       // Use our scope for the scope of the modal to keep it simple
       scope: $scope, 
       // The animation we want to use for the modal entrance
-      animation: 'slide-in-up'
+      animation: 'slide-in-down'
       }
   );
 
@@ -22,14 +22,19 @@ var resultsController = function($scope, $ionicModal){
 
 
   this.closedateModal = function(modal) {
-    console.log(modal);
     $scope.datemodal.hide();
-    $scope.datepicker = modal;
-  
+    var day = modal.substr(8,2);
+    var month = modal.substr(5, 2);
+    var year = modal.substr(0, 4);
+
+    var date = day+'-'+month+'-'+year;
+    $scope.datepicker = date;
     var i = 0;
     for (; i < _this.results.length; i++) {
       if(_this.results[i].date == date){
-          return results[i];
+          var result = _this.results[i];
+         _this.results = [];
+          _this.results.push(result);  
       }
     }
   };    
