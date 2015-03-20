@@ -146,7 +146,7 @@
             var monthNames = ["januari", "februari", "maart", "april", "mei", "juni",
                               "juli", "augustus", "september", "oktober", "november", "december"
                             ];
-            var month = monthNames[(currentDate.getMonth())-1];
+            var month = monthNames[(currentDate.getMonth())];
             scope.render(currentDate);
             scope.month = month;
           };
@@ -161,7 +161,7 @@
             var monthNames = ["januari", "februari", "maart", "april", "mei", "juni",
                               "juli", "augustus", "september", "oktober", "november", "december"
                             ];
-            var month = monthNames[(currentDate.getMonth())-1];
+            var month = monthNames[(currentDate.getMonth())];
             scope.render(currentDate);
             scope.month = month;
           };
