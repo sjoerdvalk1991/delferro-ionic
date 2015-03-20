@@ -16,6 +16,7 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
 
   $ionicModal.fromTemplateUrl('js/states/tips/open-tip.html', function(detail) {
     $scope.addDialog2 = detail;
+    $scope.addDialog2.searchText = "---";
   }, {
     scope: $scope,
     animation: 'slide-in-up',
