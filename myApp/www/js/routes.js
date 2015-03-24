@@ -1,14 +1,15 @@
 var app = angular.module('starter', [
   'ionic',
-  'ngCordova',
   'app.controller',
   'tips.controller',
+  'tip.controller',
   'results.controller',
   'result.controller',
   'movies.controller',
   'data.controller',
   'feed.controller',
   'tip.services',
+  'camera.services',
   'pickadate',
  ]);
 
@@ -53,6 +54,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent' :{
           templateUrl: "js/states/results/result.html"
+        }
+      }  
+    })
+
+    .state('app.tip', {
+      url:"/tip/:title",
+      views: {
+        'menuContent' :{
+          templateUrl: "js/states/tips/tip.html"
         }
       }  
     })

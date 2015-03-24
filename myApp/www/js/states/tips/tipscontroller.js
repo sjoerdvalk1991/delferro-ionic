@@ -1,11 +1,11 @@
-var app = angular.module('tips.controller', ['app.controller', 'tip.services']);
+var app = angular.module('tips.controller', ['app.controller', 'tip.services', 'camera.services']);
 
-var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, $cordovaFile){
+var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoading, Camera){
   var _this = this;
-  _this.images = [];
-  _this.items = '';
-  _this.item = '';
-  _this.tipList = ListFactory.getList();	  
+  // _this.images = [];
+  this.items = '';
+  this.item = '';
+  this.lastPhoto = {};
 
 	$ionicModal.fromTemplateUrl('js/states/tips/add-change-tip.html', function(modal) {
 	  $scope.addDialog = modal;
@@ -14,28 +14,19 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
 	  animation: 'slide-in-up',
 	});
 
-  $ionicModal.fromTemplateUrl('js/states/tips/open-tip.html', function(detail) {
-    $scope.addDialog2 = detail;
-    $scope.addDialog2.searchText = "---";
-  }, {
-    scope: $scope,
-    animation: 'slide-in-up',
-    // searchText = _this.item,
-  });
 
-  _this.getItemsSuccess = function(data){
+  this.getItemsSuccess = function(data){
     _this.items = data;
       // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html 
-    console.log(_this.items);
     $scope.$apply(); 
   };
 
-  _this.getItems = function(){
+  this.getItems = function(){
     dataStore.getAll(_this.getItemsSuccess,_this.errorCallback);
     console.log('getItems'); 
   };
 
-  _this.errorCallback = function(){
+  this.errorCallback = function(){
     console.log('error'); 
   };
 
@@ -48,23 +39,8 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
     $scope.addDialog.show();
   }
 
-  this.showAddChangeDialog2 = function(action) {
-    
-    $scope.action = action;
-    $scope.addDialog2.show();
-
-  }
-
   this.leaveAddChangeDialog = function() {
-      // Remove dialog 
-    $scope.addDialog.remove();
-    // Reload modal template to have cleared form
-    $ionicModal.fromTemplateUrl('js/states/tips/add-change-tip.html', function(modal) {
-      $scope.addDialog = modal;
-    }, {
-      scope: $scope,
-      animation: 'slide-in-up'
-    });
+    $scope.addDialog.hide();
   }
 
   this.saveEmpty = function(form) {
@@ -77,7 +53,7 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
     newItem.title = form.title.$modelValue;
     newItem.description = form.description.$modelValue;
     // If this is the first item it will be the default item
-    if (_this.tipList.length == 0) {
+    if (newItem.title.length == 0) {
       newItem.useAsDefault = true;
     } else {
       // Remove old default entry from list 
@@ -86,102 +62,30 @@ var tipsController = function($scope, $ionicModal, ListFactory, $cordovaCamera, 
       }
     }
     // Save new list in scope and factory
-    _this.tipList.push(newItem);
     dataStore.put({'timeStamp': new Date().getTime(),'title' : form.title.$modelValue, 'text' : form.description.$modelValue});
-    console.log(dataStore);
-    ListFactory.setList(_this.tipList);
     _this.getItems();
     this.leaveAddChangeDialog();
   };  
 
- var dataStore = new IDBStore('todos', _this.initCallback);
+  var dataStore = new IDBStore('todos', _this.initCallback);
 
-
- //----------------------//
- //     CAMERA PART      //
- //----------------------//
-
-
-  this.urlForImage = function(imageName) {
-    var name = imageName.substr(imageName.lastIndexOf('/') + 1);
-    var trueOrigin = cordova.file.dataDirectory + name;
-    return trueOrigin;
-  }
-
-  this.idCheck = function(id){
-    var i = 0;
-    for (; i < _this.items.length; i++) {
-      if(_this.items[i].id == id){
-         _this.item = _this.items[i];
-         console.log(_this.item);
-      }else{
-
-      }
-    }
-    _this.showAddChangeDialog2(); 
-  }
-
-  this.addImage = function(){
-  	var options = {
-  		destinationType : Camera.DestinationType.FILE_URI,
-  		sourceType : Camera.PictureSourcType.CAMERA,
-  		allowEdit : false,
-  		encodingType: Camera.encodingType.JPEG,
-  		popopverOptions: CameraPopoverOptions,
-  	};
-
-  	$cordovaCamera.getPicture(options).then(function(imageData){
-  		onImageSuccess(imageData);
-
-  		function onImageSuccesss(fileURI){
-  			createFileEntry(fileURI);
-  		}
-
-  		function createFileEntry(fileURI) {
-  			window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
-  		}
-
-  		function copyFile(fileEntry){
-  			var name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/')+ 1);
-  			var newName = makeid() + name;
-  		
-  			window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fileSystem2) {
-  				fileEntry.copyTo(
-  					fileSystem2,
-  					newName,
-  					onCopySucces,
-  					fail	
-  				);
-  			},	
-  			fail);
-  		}
-
-  		function onCypSuccess(entry){
-  			$scope.$apply(function(){
-  				_this.images.push(entry.nativeURL);
-  			});
-  		}
-
-  		function fail(error){
-  			console.log('fail' + error.code);
-  		}
-
-  		function makeid(){
-  			var text = "";
-  			var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  		}
-
-  		for (var i=0; i < 5; i++) {
-				text += possible.charAt(Math.floor(Math.random() * possible.length));
-			}
-			return text;
-
-  	}, function(err) {
-		console.log(err); 
-		});
-  }
+  this.getPhoto = function() {
+    console.log('test');
+    Camera.getPicture().then(function(imageURI) {
+      console.log(imageURI);
+      _this.lastPhoto = imageURI;
+    }, function(err) {
+      console.err(err);
+    }, {
+      quality: 75,
+      targetWidth: 320,
+      targetHeight: 320,
+      saveToPhotoAlbum: false
+    });
+  };
+ // 
 
 };
 
-tipsController.$inject = ['$scope', '$ionicModal', 'ListFactory', '$cordovaCamera', '$cordovaFile'];
+tipsController.$inject = ['$scope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'Camera'];
 app.controller('TipsCtrl', tipsController);

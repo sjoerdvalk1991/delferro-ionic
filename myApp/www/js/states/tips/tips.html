@@ -4,11 +4,13 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
   	<ion-list ng-repeat="item in tipsCtrl.items">
-      <ion-item class="item item-thumbnail-left" ng-click="tipsCtrl.idCheck(item.id)">
+    <a class="text-nodeco" href="#/app/tip/{{item.title}}">
+      <ion-item class="item item-thumbnail-left">
         <img style="width: 100; height: 100%;" src="img/delferro-oefening-thumb.jpg">
         <h2>{{item.title}}</h2>
         <p>{{item.text}}</p>
       </ion-item>
+    </a>  
 	  </ion-list>  
     <div class="row text-center">
 			<div class="col col-40"> 
