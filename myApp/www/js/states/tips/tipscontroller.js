@@ -14,7 +14,6 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
 	  animation: 'slide-in-up',
 	});
 
-
   this.getItemsSuccess = function(data){
     _this.items = data;
       // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html 
