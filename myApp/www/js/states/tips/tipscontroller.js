@@ -7,6 +7,7 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
   this.item = '';
   this.lastPhoto = [];
   this.camera = cameraService;
+  this.photo = false;
 
 	$ionicModal.fromTemplateUrl('js/states/tips/add-change-tip.html', function(modal) {
 	  $scope.addDialog = modal;
@@ -61,19 +62,22 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
         removeDefault();
       }
     }
-    // Save new list in scope and factory
-    dataStore.put({'timeStamp': new Date().getTime(),'title' : form.title.$modelValue, 'text' : form.description.$modelValue});
-    _this.getItems();
-    this.leaveAddChangeDialog();
+    if(_this.lastPhoto.length > 0){
+      dataStore.put({'timeStamp': new Date().getTime(),'title' : form.title.$modelValue, 'text' : form.description.$modelValue, 'url' : _this.lastPhoto[_this.lastPhoto.length-1] });
+      _this.initCallback();
+
+      this.leaveAddChangeDialog();
+      _this.photo = false;
+    }
   };  
 
+  
   var dataStore = new IDBStore('todos', _this.initCallback);
 
   this.getPhoto = function() {
     console.log('Getting camera');
     _this.camera.getPicture().then(function(imageURI) {
       console.log(imageURI);
-      $scope.lastPhoto = imageURI;
     }, function(err) {
       console.err(err);
     }, {
@@ -82,22 +86,8 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
       targetHeight: 320,
       saveToPhotoAlbum: false
     });
-
+    _this.lastPhoto.push(imageURI);
   }
-
-  navigator.camera.getPicture(function(imageURI) {
-
-              // imageURI is the URL of the image that we can use for
-              // an <img> element or backgroundImage.
-
-            }, function(err) {
-
-              // Ruh-roh, something bad happened
-
-            });
-
-
-
 };
 
 tipsController.$inject = ['$scope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService'];
