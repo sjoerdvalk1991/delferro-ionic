@@ -1,6 +1,6 @@
 var app = angular.module('tips.controller', ['app.controller', 'tip.services', 'camera.services']);
 
-var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoading, cameraService){
+var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicViewService, $ionicLoading, cameraService){
   var _this = this;
   // _this.images = [];
   this.items = '';
@@ -15,6 +15,11 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
 	  scope: $scope,
 	  animation: 'slide-in-up',
 	});
+
+  $scope.$on('$destroy', function() {
+    $scope.addDialog.remove();
+  });
+
 
   this.getItemsSuccess = function(data){
     _this.items = data;
@@ -42,11 +47,9 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
 
   this.leaveAddChangeDialog = function() {
     $scope.addDialog.hide();
+    $state.go($state.current, {}, {reload: true});
   }
 
-  this.saveEmpty = function(form) {
-    $scope.form = angular.copy(form);
-  }
 
   this.addItem = function(form) {
     var newItem = {};
@@ -59,25 +62,36 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
     } else {
       // Remove old default entry from list 
       if (newItem.useAsDefault) {
-        removeDefault();
+        
       }
     }
-    if(_this.lastPhoto.length > 0){
-      dataStore.put({'timeStamp': new Date().getTime(),'title' : form.title.$modelValue, 'text' : form.description.$modelValue, 'url' : _this.lastPhoto[_this.lastPhoto.length-1] });
-      _this.initCallback();
+    
+    dataStore.put({'timeStamp': new Date().getTime(),'title' : form.title.$modelValue, 'text' : form.description.$modelValue, 'url' : _this.lastPhoto[_this.lastPhoto.length-1] });
+    $scope.addDialog.remove();
+    _this.leaveAddChangeDialog();
+    _this.photo = false;
+  };
 
-      this.leaveAddChangeDialog();
-      _this.photo = false;
+  var dataStore = new IDBStore('todos', _this.initCallback);   
+
+  this.getStored = function(){
+    var dataStore = new IDBStore('todos', _this.initCallback); 
+  }
+
+  this.imagePlus = function(length){
+    console.log(length);
+    if(length == 1){
+      document.querySelector(".plus-image").innerHTML = (length + "foto toegevoegd");
+    }else if(length > 1){
+      document.querySelector(".plus-image").innerHTML = (length + "foto's toegevoegd");
     }
-  };  
-
-  
-  var dataStore = new IDBStore('todos', _this.initCallback);
+    
+  }
 
   this.getPhoto = function() {
     console.log('Getting camera');
     _this.camera.getPicture().then(function(imageURI) {
-      console.log(imageURI);
+      _this.lastPhoto.push(imageURI);
     }, function(err) {
       console.err(err);
     }, {
@@ -86,9 +100,12 @@ var tipsController = function($scope, $ionicModal, $ionicViewService, $ionicLoad
       targetHeight: 320,
       saveToPhotoAlbum: false
     });
-    _this.lastPhoto.push(imageURI);
+    var length = _this.lastPhoto.length;
+    _this.imagePlus(length); 
+    
   }
+
 };
 
-tipsController.$inject = ['$scope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService'];
+tipsController.$inject = ['$scope', '$state', '$rootScope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService'];
 app.controller('TipsCtrl', tipsController);
