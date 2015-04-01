@@ -4,6 +4,13 @@ module.factory('cameraService', function($q) {
  
   var cameraService = {};
 
+
+//   Camera.PictureSourceType = {
+//     PHOTOLIBRARY : 0,
+//     CAMERA : 1,
+//     SAVEDPHOTOALBUM : 2
+// };
+
     cameraService.getPicture = function(options) {
       var q = $q.defer();
             
