@@ -1,6 +1,6 @@
 var app = angular.module('result.controller', ['app.controller']);
 
-var resultController = function(params){
+var resultController = function(params, $state){
   var _this = this;
   this.result = {};
   this.results = JSON.parse(localStorage.getItem('dailyData'));
@@ -16,6 +16,7 @@ var resultController = function(params){
   }
 
   this.drawChart = function(){
+    d3.select("svg").remove();
     var w = 300;
     var h = 300;
     var r = h/2;
@@ -45,8 +46,6 @@ var resultController = function(params){
           return arc(d);
       });
 
-
-
     // add the text
     arcs.append("svg:text").attr("transform", function(d){
       d.innerRadius = 0;
@@ -57,10 +56,46 @@ var resultController = function(params){
       
   }
 
+  this.checkChange = function(){
+    var date = _this.result.date;
+    _this.changeState(date);
+  }
+
+
+  this.changeState = function(date){
+    $state.go('app.overview', {date: date});
+  }
+
+  this.changeDate = function(type){
+    var results = JSON.parse(localStorage.getItem('dailyData'));
+    if (type == 'minus') {
+      var i = 0;
+      for (; i < results.length; i++) {
+        if(results[i].date == _this.result.date){
+            _this.result = results[i-1];
+            _this.drawChart();
+        }
+      }
+    }else if(type == 'plus') {
+      var i = 0;
+      var newResult;
+      for (; i < results.length; i++) {
+        if(results[i].date == _this.result.date){
+            newResult = i;
+        }
+      }
+      plusDate(newResult);
+      function plusDate(i){
+        _this.result = results[i+1];
+        _this.drawChart();
+      }  
+    }
+  }
+
   this.result = _this.resultCheck(params);
   this.drawChart();
 };  
 
 
-resultController.$inject = ['$stateParams'];
+resultController.$inject = ['$stateParams', '$state'];
 app.controller('ResultCtrl', resultController);

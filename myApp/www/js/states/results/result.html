@@ -9,4 +9,17 @@
     </div>
   </div>  
   </ion-content>
+  <ion-footer-bar align-title="left" class="bar-stable">
+  <div class="row">
+    <div class="buttons col-33">
+         <ion-button class="neg-mt-5 col button white icon-left ion-chevron-left button-clear" ng-click="resultCtrl.changeDate('minus')">Vorige</ion-button>
+    </div>
+    <div class="buttons col-33 text-left">
+        <ion-button class="neg-mt-5 col button white icon ion-arrow-graph-up-right button-clear" ng-click="resultCtrl.checkChange()"></ion-button>
+    </div>
+    <div class="buttons col-33 text-left" ng-click="">
+      <ion-button class="neg-mt-5 col button white icon-right ion-chevron-right button-clear" ng-click="resultCtrl.changeDate('plus')">Volgende</ion-button>
+    </div>
+  </div>
+</ion-footer-bar>
 </ion-view>
