@@ -34,83 +34,81 @@ var overviewController = function($rootScope, $scope, $ionicPopup, params){
  
   		dateArray.push(dailyDate);
   	}
-
+  	var dataArray = [];
   	g = 0;	
   	for (; g < weekData.length; g++) {
      	weekData[g].date = dateArray[g].date;
+     	dailyNumber = {
+     		date: weekData[g].date,
+     		total: weekData[g].stutter
+     	}
+     	dataArray.push(dailyNumber);
     }
-  	
-    console.log(weekData);
-    _this.drawGraph(weekData);  	
+
+    _this.drawGraph(dataArray); 
+    console.log(weekData); 	
   }
 
-  this.drawGraph = function(weekData){
-  	var arrData = weekData;
-  	var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-		var parseDate = d3.time.format("%Y-%m-%d").parse;
-
+  this.drawGraph = function(dataArray){
+  	var data = dataArray;
+		  var margin = {top: 40, right: 40, bottom: 40, left:40},
+		    width = 300,
+		    height = 200;
 
 		var x = d3.time.scale()
-	    .range([0, width])
+		    .domain([new Date(data[0].date), d3.time.day.offset(new Date(data[data.length - 1].date), 1)])
+		    .rangeRound([0, width - margin.left - margin.right]);
 
 		var y = d3.scale.linear()
-	    .range([height, 0]);
+		    .domain([0, d3.max(data, function(d) { return d.total; })])
+		    .range([height - margin.top - margin.bottom, 0]);
 
 		var xAxis = d3.svg.axis()
-	    .scale(x)
-	    .orient("bottom");
+		    .scale(x)
+		    .orient('bottom')
+		    .ticks(d3.time.days, 1)
+		    .tickFormat(d3.time.format('%a %d'))
+		    .tickSize(0)
+		    .tickPadding(8);
 
 		var yAxis = d3.svg.axis()
-	    .scale(y)
-	    .orient("left");
+		    .scale(y)
+		    .orient('left')
+		    .tickPadding(8);
 
-		var line = d3.svg.line()
-	    .x(function(d) { return x(d.date); })
-	    .y(function(d) { return y(d.stutter); });
+		var svg = d3.select('#visualisation').append('svg')
+		    .attr('class', 'chart')
+		    .attr('width', width)
+		    .attr('height', height)
+		  .append('g')
+		    .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
 
-		var svg = d3.select("body").append("svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-		  .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-		  var data = arrData.map(function(d) {
-	      return {
-	        date: parseDate(d[0]),
-	        stutter: d[1]
-	      };
-		      
-		  });
+		svg.selectAll('.chart')
+		    .data(data)
+		  .enter().append('rect')
+		    .attr('class', 'bar')
+		    .attr('x', function(d) { return x(new Date(d.date)); })
+		    .attr('y', function(d) { return height - margin.top - margin.bottom - (height - margin.top - margin.bottom - y(d.total)) })
+		    .attr('width', 10)
+		    .attr('height', function(d) { return height - margin.top - margin.bottom - y(d.total) });
 
-	  console.log(data);
+		svg.append('g')
+		    .attr('class', 'x axis')
+		    .attr('transform', 'translate(0, ' + (height - margin.top - margin.bottom) + ')')
+		    .call(xAxis)
+		    .selectAll("text")  
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", function(d) {
+                return "rotate(-65)" 
+                });
 
-
-	  x.domain(d3.extent(data, function(d) { return d.date; }));
-	  y.domain(d3.extent(data, function(d) { return d.stutter; }));
-
-	  svg.append("g")
-	      .attr("class", "x axis")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(xAxis);
-
-	  svg.append("g")
-	      .attr("class", "y axis")
-	      .call(yAxis)
-	    .append("text")
-	      .attr("transform", "rotate(-90)")
-	      .attr("y", 6)
-	      .attr("dy", ".71em")
-	      .style("text-anchor", "end")
-	      .text("Price ($)");
-
-	  svg.append("path")
-	      .datum(data)
-	      .attr("class", "line")
-	      .attr("d", line);
-	};
-
+		svg.append('g')
+		  .attr('class', 'y axis')
+		  .call(yAxis);
+	}
+	  
   this.catchWeek(params);
 };
 

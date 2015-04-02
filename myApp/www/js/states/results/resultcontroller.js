@@ -81,7 +81,7 @@ var resultController = function(params, $state){
       var newResult;
       for (; i < results.length; i++) {
         if(results[i].date == _this.result.date){
-            newResult = i;
+          newResult = i;
         }
       }
       plusDate(newResult);

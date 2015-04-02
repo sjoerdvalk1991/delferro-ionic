@@ -116,6 +116,10 @@ h3.header{
   text-decoration: none;
 }
 
+#chart{
+  left: -300;
+}
+
 h1.header{
   color: #000 !important;
   font-family: 'Roboto', cursive !important;
@@ -272,3 +276,25 @@ h1{
   width: 40px;
   height: 35px;
 }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000 !important;
+  shape-rendering: crispEdges;
+}
+
+  .chart {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+  }
+
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .bar {
+    fill: steelblue;
+  }
