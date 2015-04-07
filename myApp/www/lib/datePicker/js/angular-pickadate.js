@@ -123,22 +123,37 @@
             
 
               if (date === today) {
-                className += 'pickadate-today';
+                className += ' pickadate-today';
               }
 
            
               dates.push({date: date, className: className});
             }
+
+            console.log(dates);
+
             
             newDates = [];
             var storedDates = JSON.parse(localStorage.getItem('calenderData'));
-            for (var i = 0; i < dates.length; i++) {
-              for(var inner = 0; inner < storedDates.length; inner++){
-                if(dates[i].date === storedDates[inner].date){
-                  date[i].className += 'checked-date';
+            console.log(storedDates);
 
-                }
+            for (var i = 0; i < dates.length; i++) {
+
+              console.log(dates[i].date);
+
+              //console.log("date",dates[i].date.format('YYYY-MM-DD'));
+
+              for(var inner = 0; inner < storedDates.length; inner++){
+                //if(dates[i].date === storedDates[inner]._i){
+                //  dates[i].className = 'checked-date';
+
+                //}
+
+                var storedDate = moment(storedDates[inner]);
+                console.log("storedDate",storedDate.format('YYYY-MM-DD'));
+
               }
+              newDates.push(dates[i]); 
             }
 
 

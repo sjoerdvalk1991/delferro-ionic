@@ -33,9 +33,9 @@ var resultsController = function($scope, $ionicModal){
       dailyDate = {
         date: year+'-'+month+'-'+day
       }
-      // var day = moment(dailyDate.date);
-      // console.log(day);
-      dateArray.push(dailyDate);
+      var day = moment(dailyDate.date, "yyyy-MM-DD");
+      console.log(day);
+      dateArray.push(day);
     }
     
       console.log(dateArray);
