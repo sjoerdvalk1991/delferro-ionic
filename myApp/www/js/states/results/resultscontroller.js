@@ -19,6 +19,32 @@ var resultsController = function($scope, $ionicModal){
     $scope.datemodal.show();
   };
 
+  this.dateFix = function(){
+    dateArray = [];
+    j = 0;
+    for (; j < _this.results.length; j++) {
+      var date = _this.results[j].date;
+      dateFormat(date);
+    }
+    function dateFormat(date){
+      var year = date.substr(6,4);
+      var month = date.substr(3,2);
+      var day = date.substr(0,2);
+      dailyDate = {
+        date: year+'-'+month+'-'+day
+      }
+      // var day = moment(dailyDate.date);
+      // console.log(day);
+      dateArray.push(dailyDate);
+    }
+    
+      console.log(dateArray);
+      localStorage.setItem('calenderData', JSON.stringify(dateArray));
+  }
+
+  this.dateFix();
+  
+
   this.closedateModal = function(modal) {
     $scope.datemodal.hide();
     var day = modal.substr(8,2);

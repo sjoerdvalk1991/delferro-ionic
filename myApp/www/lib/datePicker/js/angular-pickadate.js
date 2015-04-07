@@ -120,14 +120,29 @@
               } else {
                 className = 'pickadate-enabled';
               }
+            
 
               if (date === today) {
-                className += ' pickadate-today';
+                className += 'pickadate-today';
               }
 
+           
               dates.push({date: date, className: className});
             }
+            
+            newDates = [];
+            var storedDates = JSON.parse(localStorage.getItem('calenderData'));
+            for (var i = 0; i < dates.length; i++) {
+              for(var inner = 0; inner < storedDates.length; inner++){
+                if(dates[i].date === storedDates[inner].date){
+                  date[i].className += 'checked-date';
 
+                }
+              }
+            }
+
+
+            
             scope.dates = dates;
           };
 
