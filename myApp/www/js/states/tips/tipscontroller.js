@@ -20,7 +20,6 @@ var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicVie
     $scope.addDialog.remove();
   });
 
-
   this.getItemsSuccess = function(data){
     _this.items = data;
       // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html 

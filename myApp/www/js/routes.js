@@ -7,6 +7,7 @@ var app = angular.module('starter', [
   'result.controller',
   'overview.controller',
   'movies.controller',
+  'movie.controller',
   'data.controller',
   'feed.controller',
   'tip.services',
@@ -91,6 +92,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent' : {
           templateUrl: "js/states/results/resultsoverview.html"
+        }
+      }
+    })
+
+     .state('app.movie', {
+      url:"/movie/:value",
+      views: {
+        'menuContent' : {
+          templateUrl: "js/states/movies/movie.html"
         }
       }
     })

@@ -17,6 +17,7 @@ var resultController = function(params, $state){
 
   this.drawChart = function(){
     d3.select("svg").remove();
+
     var w = 300;
     var h = 300;
     var r = h/2;
@@ -35,6 +36,8 @@ var resultController = function(params, $state){
 // declare an arc generator function
     var arc = d3.svg.arc().outerRadius(r);
 
+    
+
     // select paths, use arc generator to draw
     var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
     arcs.append("svg:path")
@@ -44,7 +47,7 @@ var resultController = function(params, $state){
       .attr("d", function (d) {
           // log the result of the arc generator to show how cool it is :)
           return arc(d);
-      });
+      })
 
     // add the text
     arcs.append("svg:text").attr("transform", function(d){
@@ -53,7 +56,7 @@ var resultController = function(params, $state){
     return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
     return data[i].label;}
     );
-      
+    
   }
 
   this.checkChange = function(){
