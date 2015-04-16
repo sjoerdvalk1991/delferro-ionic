@@ -1,11 +1,13 @@
-var app = angular.module('data.controller', ['app.controller']);
+var app = angular.module('data.controller', ['app.controller', 'camera.services']);
 
-var dataController = function($rootScope, $scope, $ionicPopup, $filter){
+var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointService){
   var _this = this;
 
   this.stutter = 0;
   this.stop = 0;
   this.challenge = 0;
+  this.points = 0;
+  this.pointService = pointService;
   this.today = {};
 
   this.practise = [
@@ -68,21 +70,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
   
   $scope.showAlertSaved = function() {
    var alertPopup = $ionicPopup.alert({
-     title: 'Pas op',
-     template: 'Melding'
+     title: 'Opgeslagen',
+     template: 'De resultaten zijn succesvol opgeslagen'
    });
    alertPopup.then(function(res) {
      console.log('warning 1');
-   });
-  };
-
-  $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: 'Pas op',
-     template: 'Melding'
-   });
-   alertPopup.then(function(res) {
-     console.log('Pas op');
    });
   };
 
@@ -102,6 +94,23 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
      _this.stutter++;
     }else if(type == 'stoppen'){
       _this.stop++;
+      $('.pt-10').show();
+      $('.pt-10').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-10').hide();
+          
+        }, pointIncrease());
+      });
+
+      function pointIncrease(){
+        $scope.$apply(function () {
+          _this.points = _this.stop * 10;
+        });
+        
+          $('.score').animo( {  animation: 'tada', duration: 0.8 });
+      }  
+
     }else if(type == 'uitdaging'){   
       _this.challenge++;
     }else{
@@ -188,5 +197,5 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter){
   }    
 };  
 
-dataController.$inject = ['$rootScope', '$scope', '$ionicPopup', '$filter'];
+dataController.$inject = ['$rootScope', '$scope', '$ionicPopup', '$filter', 'pointService'];
 app.controller('DataCtrl', dataController);

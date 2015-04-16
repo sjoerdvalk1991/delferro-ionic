@@ -1359,7 +1359,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
-		-webkit-transform: translateY(-2000px);
+		transform: translate(500px, -2000px);
 	}
 }
 
@@ -1395,7 +1395,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	
 	100% {
 		opacity: 0;
-		transform: translateY(-2000px);
+		transform: translate(-500px, -2000px);
 	}
 }
 

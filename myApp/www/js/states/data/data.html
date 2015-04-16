@@ -1,11 +1,13 @@
-<ion-view title="Vul je schema in" ng-controller="DataCtrl as dataCtrl">
+<ion-view title="Schema" ng-controller="DataCtrl as dataCtrl">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button menu-toggle>
+    <span class="score">Score: {{dataCtrl.points}}</span>
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
   <div class="row">
-    <div class="col col text-center">
+    <div class="col col text-center pos-rel">
       <h1 class="header">Vul je schema in</h1>
+      
     </div>
   </div>
   <div class="row">
@@ -36,6 +38,9 @@
     <div class="col col-20">
       <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.stop}}</h2>
     </div>
+    <p class="pt-10">
+    <span class="points">10 ptn</span>
+    </p>
     <div class="col col-40"> 
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('stoppen')"></button>
     </div>

@@ -176,6 +176,38 @@ h2{
   background-color: #EF4E3A;
 }
 
+.score{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+}
+
+.pt-10{
+  display : none;
+  position: absolute;
+  background-color: green;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  right: 50px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.pt-10:after{
+  background-color: green;
+}
+
+.points{
+  position: absolute;
+  left: 50px;
+  top: 35px;
+}
+
+
 .white{
   color: #fff !important;
 }
