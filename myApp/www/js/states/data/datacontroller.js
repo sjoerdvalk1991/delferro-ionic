@@ -5,6 +5,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
 
   this.stutter = 0;
   this.stop = 0;
+  this.stopPoint = 0;
   this.challenge = 0;
   this.points = 0;
   this.pointService = pointService;
@@ -92,8 +93,29 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.increase = function(type){
     if(type == 'stotteren'){
      _this.stutter++;
+
+     $('.pt-stutter').show();
+      $('.pt-stutter').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-stutter').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-stutter').hide();
+          
+        }, stutterIncrease());
+      });
+
+      function stutterIncrease(){
+        $scope.$apply(function () {
+          _this.points = (_this.points / 2);
+        });
+          $('.score-points').css("font-size", "3.5em");
+          $('.score').animo( {  animation: 'shake', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+      }
+
     }else if(type == 'stoppen'){
       _this.stop++;
+       _this.stopPoint = (_this.stopPoint + 10);
       $('.pt-10').show();
       $('.pt-10').animo( { 
         animation: 'fadeInUp', duration: 1.4}, function() {
@@ -104,11 +126,13 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       });
 
       function pointIncrease(){
+        $('.score-points').css("font-size", "2.5em");
         $scope.$apply(function () {
-          _this.points = _this.stop * 10;
+          _this.points = (_this.points + 10);
         });
-        
+          
           $('.score').animo( {  animation: 'tada', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
       }  
 
     }else if(type == 'uitdaging'){   
@@ -119,11 +143,48 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   }
 
   this.decrease = function(type){
-    if((type == 'stotteren') && (_this.stutter >= 0)){
+    if((type == 'stotteren') && (_this.stutter > 0)){
   	 _this.stutter--;
-    }else if((type == 'stoppen')&&(_this.stop >= 0)){
+
+     $('.pt-stutter-10').show();
+      $('.pt-stutter-10').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-stutter-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-stutter-10').hide();
+          
+        }, stutterDecrease());
+      });
+
+      function stutterDecrease(){
+        $scope.$apply(function () {
+          _this.points = (_this.points*2);
+        });
+          $('.score-points').css("font-size", "3.5em");
+          $('.score').animo( {  animation: 'shake', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+      }  
+    }else if((type == 'stoppen')&&(_this.stop > 0)){
       _this.stop--;
-    }else if((type == 'uitdaging')&&(_this.challenge >= 0)){   
+      $('.pt--10').show();
+      $('.pt--10').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt--10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt--10').hide();
+          
+        }, pointDecrease());
+      });
+
+      function pointDecrease(){
+        $scope.$apply(function () {
+          _this.points = (_this.points + 10);
+        });
+          $('.score-points').css("font-size", "3.5em");
+          $('.score').animo( {  animation: 'shake', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+      }  
+    }else if((type == 'uitdaging')&&(_this.challenge > 0)){   
       _this.challenge--;
     }else{
 
@@ -133,14 +194,46 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.practiseChecker = function(){
     var checkValue = _this.practise[0].checked;
     if(checkValue == true){
-      $scope.showAlertPractise();
+      $('.pt-practise').show();
+      $('.pt-practise').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-practise').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-practise').hide();
+          
+        }, pointPractise());
+      });
+    }
+
+    function pointPractise(){
+      $scope.$apply(function () {
+        _this.points = (_this.points + 100);
+      });
+        $('.score-points').css("font-size", "3.5em");
+        $('.score').animo( {  animation: 'shake', duration: 0.8 });
+        $('.score-points').css("font-size", "1.5em");
     }
   }
 
   this.consequentChecker = function(){
     var checkValue = _this.consequent[0].checked;
     if(checkValue == true){
-      $scope.showAlertPractise();
+      $('.pt-consequent').show();
+      $('.pt-consequent').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-consequent').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-consequent').hide();
+          
+        }, pointConsequent());
+      });
+    }
+
+    function pointConsequent(){
+      $scope.$apply(function () {
+        _this.points = (_this.points + 200);
+      });
+        $('.score-points').css("font-size", "3.5em");
+        $('.score').animo( {  animation: 'shake', duration: 0.8 });
+        $('.score-points').css("font-size", "1.5em");
     }
   }
 

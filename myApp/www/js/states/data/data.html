@@ -1,7 +1,7 @@
 <ion-view title="Schema" ng-controller="DataCtrl as dataCtrl">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button menu-toggle>
-    <span class="score">Score: {{dataCtrl.points}}</span>
+    <span class="score">Score: <span class="score-points">{{dataCtrl.points}}</span></span>
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
   <div class="row">
@@ -19,9 +19,17 @@
     <div class="col col-40">
       <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decrease('stotteren')"></button>
     </div>
+    <p class="pt-stutter">
+      <span class="points-stutter">Punten gehalveerd</span>
+      <span class="after-stutter"></span>
+    </p> 
     <div class="col col-20">
       <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.stutter}}</h2>
     </div>
+    <p class="pt-stutter-10">
+      <span class="points-stutter-10">Punten verdubbeld</span>
+      <span class="after-stutter-10"></span>
+    </p>
     <div class="col col-40"> 
       <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increase('stotteren')"></button>
     </div>
@@ -35,11 +43,16 @@
     <div class="col col-40">
       <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('stoppen')"></button>
     </div>
+    <p class="pt--10">
+      <span class="points-10">-10 ptn!</span>
+      <span class="after-10"></span>
+    </p>
     <div class="col col-20">
       <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.stop}}</h2>
     </div>
     <p class="pt-10">
-    <span class="points">10 ptn</span>
+      <span class="points">{{dataCtrl.stopPoint}} ptn!</span>
+      <span class="after"></span>
     </p>
     <div class="col col-40"> 
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('stoppen')"></button>
@@ -49,13 +62,23 @@
     <div class="col col text-center">
       <h3 class="header">Oefeningen</h3>
     </div>
-  </div>  
+  </div>
+  <div>
+    <p class="pt-practise">
+      <span class="points-practise">100 ptn, Heel goed gedaan!</span>
+      <span class="after-practise"></span>
+    </p> 
    <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
       {{item.text }}
     </ion-checkbox>
+    <p class="pt-consequent">
+      <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
+      <span class="after-consequent"></span>
+    </p> 
       <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
       {{item.text }}
     </ion-checkbox>
+  </div>   
   <div class="row">
     <div class="col col text-center">
       <h3 class="header">Aantal uitdagingen</h3>
