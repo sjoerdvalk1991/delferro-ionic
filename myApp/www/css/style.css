@@ -587,3 +587,14 @@ h1{
   .bar {
     fill: steelblue;
   }
+
+
+.spinner svg {
+  position: absolute;
+  left:50%;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #444;
+}

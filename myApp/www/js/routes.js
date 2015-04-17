@@ -1,6 +1,7 @@
 var app = angular.module('starter', [
   'ionic',
   'app.controller',
+  'goals.controller',
   'tips.controller',
   'tip.controller',
   'results.controller',
@@ -96,7 +97,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-     .state('app.movie', {
+    .state('app.movie', {
       url:"/movie/:value",
       views: {
         'menuContent' : {
@@ -104,6 +105,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+
+    .state('app.goals', {
+      url:"/goals",
+      views: {
+        'menuContent' : {
+          templateUrl: "js/states/goal/goal.html"
+        }
+      }
+    }) 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/data');

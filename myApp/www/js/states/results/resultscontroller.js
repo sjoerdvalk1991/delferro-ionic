@@ -34,11 +34,11 @@ var resultsController = function($scope, $ionicModal){
         date: year+'-'+month+'-'+day
       }
       var day = moment(dailyDate.date, "yyyy-MM-DD");
-      console.log(day);
+      // console.log(day);
       dateArray.push(day);
     }
     
-      console.log(dateArray);
+      // console.log(dateArray);
       localStorage.setItem('calenderData', JSON.stringify(dateArray));
   }
 
@@ -69,7 +69,14 @@ var resultsController = function($scope, $ionicModal){
       _this.results = JSON.parse(localStorage.getItem('dailyData'));
     }
 
-  };    
+  };
+
+  this.animate = function(){
+    Materialize.showStaggeredList('#staggered-test');
+  }  
+
+  this.animate();
+    
 
 };
 
