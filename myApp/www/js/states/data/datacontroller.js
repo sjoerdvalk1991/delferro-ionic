@@ -8,6 +8,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.stopPoint = 0;
   this.challenge = 0;
   this.points = 0;
+  this.telephone = 0;
   this.pointService = pointService;
   this.today = {};
 
@@ -89,6 +90,10 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
    });
   };
 
+  this.openApp = function(){
+
+  }
+
 
   this.increase = function(type){
     if(type == 'stotteren'){
@@ -118,7 +123,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
        _this.stopPoint = (_this.stopPoint + 10);
       $('.pt-10').show();
       $('.pt-10').animo( { 
-        animation: 'fadeInUp', duration: 1.4}, function() {
+        animation: 'fadeInUp', duration: 1.5}, function() {
         $('.pt-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-10').hide();
           
@@ -137,6 +142,10 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
 
     }else if(type == 'uitdaging'){   
       _this.challenge++;
+
+    }else if (type = 'telefoneren'){
+      _this.telephone++;
+
     }else{
       
     }	
@@ -272,6 +281,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         dailySession.push(dailyData);
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
         $scope.showAlertSaved();  
+
       }else{
 
         var dailyData = {

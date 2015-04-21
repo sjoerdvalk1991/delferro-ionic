@@ -45,6 +45,10 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
         
       }
   	}
+  }
+
+  this.deleteItem = function(){
+  	
   }	
  
 

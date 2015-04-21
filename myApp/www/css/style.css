@@ -566,6 +566,10 @@ h1{
   height: 35px;
 }
 
+.all-content{
+  display: none;
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -598,3 +602,5 @@ h1{
   stroke: #444;
   fill: #444;
 }
+
+

@@ -1,6 +1,6 @@
 var app = angular.module('results.controller', ['app.controller', 'pickadate']);
 
-var resultsController = function($scope, $ionicModal){
+var resultsController = function($scope, $ionicModal, $ionicLoading, $timeout){
   var _this = this;
   _this.results = JSON.parse(localStorage.getItem('dailyData'));
   $ionicModal.fromTemplateUrl('js/states/results/date.html', 
@@ -14,6 +14,24 @@ var resultsController = function($scope, $ionicModal){
       animation: 'slide-in-up'
       }
   );
+
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
+
+  $timeout(function () {
+    $ionicLoading.hide();
+    _this.loaded();
+  }, 1200);
+
+  this.loaded = function(){
+    $('.all-content').fadeIn();
+    $('.all-content').animo( { animation: 'fadeInRight', duration: 0.4 });
+  }
 
   this.opendateModal = function() {
     $scope.datemodal.show();
@@ -71,14 +89,10 @@ var resultsController = function($scope, $ionicModal){
 
   };
 
-  this.animate = function(){
-    Materialize.showStaggeredList('#staggered-test');
-  }  
-
-  this.animate();
+  
     
 
 };
 
-resultsController.$inject = ['$scope', '$ionicModal'];
+resultsController.$inject = ['$scope', '$ionicModal', '$ionicLoading', '$timeout'];
 app.controller('ResultsCtrl', resultsController);
