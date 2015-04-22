@@ -1,15 +1,16 @@
-var app = angular.module('goals.controller', ['app.controller', 'tip.services', 'camera.services']);
+var app = angular.module('goals.controller', ['app.controller', 'camera.services']);
 
-var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicViewService, $ionicLoading, cameraService){
+var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicViewService, $ionicLoading, $timeout, cameraService){
   var _this = this;
   // _this.images = [];
   this.items = '';
   this.item = '';
   this.lastPhoto = [];
+  this.goals = JSON.parse(localStorage.getItem('goalAr'));
   this.camera = cameraService;
   this.photo = false;
 
-	$ionicModal.fromTemplateUrl('js/states/tips/add-change-tip.html', function(modal) {
+	$ionicModal.fromTemplateUrl('js/states/goal/add-goal.html', function(modal) {
 	  $scope.addDialog = modal;
 	}, {
 	  scope: $scope,
@@ -20,14 +21,50 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
     $scope.addDialog.remove();
   });
 
+
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
+
+  $timeout(function () {
+    $ionicLoading.hide();
+    _this.loaded();
+  }, 1200);
+
+  this.loaded = function(){
+    $('.all-content').fadeIn();
+    $('.all-content').animo( { animation: 'fadeInRight', duration: 0.4 });
+  }
+
   this.showAddChangeDialog = function(action) {
     $scope.action = action;
     $scope.addDialog.show();
   }
 
-  this.leaveAddChangeDialog = function() {
+  this.leaveAddChangeDialog = function(newItem) {
+    
+
+    if(_this.goals){
+      
+
+      console.log('test');
+
+    }else{
+      goalAr = [];
+      goalAr.push(newItem);
+      localStorage.setItem('goalAr', JSON.stringify(goalAr));
+    }
+
+
     $scope.addDialog.hide();
+    _this.goals = JSON.parse(localStorage.getItem('goalAr'));
     $state.go($state.current, {}, {reload: true});
+
+
   }
 
 
@@ -45,11 +82,10 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
         
       }
   	}
-  }
 
-  this.deleteItem = function(){
-  	
-  }	
+    _this.leaveAddChangeDialog(newItem);
+
+  }
  
 
   this.getPhoto = function() {
@@ -71,5 +107,5 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
 
 };
 
-goalsController.$inject = ['$scope', '$state', '$rootScope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService'];
+goalsController.$inject = ['$scope', '$state', '$rootScope', '$ionicModal', '$ionicViewService', '$ionicLoading', '$timeout', 'cameraService'];
 app.controller('GoalsCtrl', goalsController);

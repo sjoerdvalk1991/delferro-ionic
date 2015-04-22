@@ -33,6 +33,10 @@
   padding: 5px !important;
 }
 
+.br-100{
+  border-radius: 100% !important;
+}
+
 .plxxl{
   padding-left: 25px;
 }

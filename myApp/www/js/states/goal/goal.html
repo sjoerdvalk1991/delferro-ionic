@@ -3,21 +3,26 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
-  <h1 class="header mtm">He Sjoerd, Stel je doel voor vandaag</h1>
-  	<ion-list ng-repeat="item in goalsCtrl.items">
+  <div class="mt-44">
+    <ion-spinner></ion-spinner>
+  </div>
+  <div class="all-content">
+    <h1 ng-if class="header mtm">He Sjoerd, Stel je doel voor vandaag</h1>
+    <ion-list ng-repeat="item in goalsCtrl.goals">
     <a class="text-nodeco" href="#/app/tip/{{item.title}}">
       <ion-item class="item item-thumbnail-left">
-        <img style="width: 100; height: 100%;" src="{{item.url}}">
         <h2>{{item.title}}</h2>
-        <p>{{item.text}}</p>
+        <p>{{item.description}}</p>
       </ion-item>
     </a>  
-	  </ion-list>  
+    </ion-list>  
     <div class="row text-center">
-		<div class="col col-40"> 
- 		<button class="button-block right button button-positive icon ion-plus" ng-click="tipsCtrl.showAddChangeDialog('add')">  Voeg een tip toe
-				</button> 
- 		</div>
-	</div> 
+      <div class="col col-40"> 
+      <button class="button-block right button button-positive icon ion-plus" ng-click="goalsCtrl.showAddChangeDialog('add')">  Voeg een tip toe
+          </button> 
+      </div>
+    </div>   
+  </div> 
+  
   </ion-content>
 </ion-view>
