@@ -88,10 +88,7 @@ var resultsController = function($scope, $ionicModal, $ionicLoading, $timeout){
     }
 
   };
-
   
-    
-
 };
 
 resultsController.$inject = ['$scope', '$ionicModal', '$ionicLoading', '$timeout'];

@@ -15,6 +15,8 @@ var resultController = function(params, $state){
     }
   }
 
+
+
   this.drawChart = function(){
     d3.select("svg").remove();
 

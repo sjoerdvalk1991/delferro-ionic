@@ -1,6 +1,6 @@
 var app = angular.module('tips.controller', ['app.controller', 'tip.services', 'camera.services']);
 
-var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicViewService, $ionicLoading, cameraService){
+var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicViewService, $ionicLoading, cameraService, $timeout){
   var _this = this;
   // _this.images = [];
   this.items = '';
@@ -19,6 +19,24 @@ var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicVie
   $scope.$on('$destroy', function() {
     $scope.addDialog.remove();
   });
+
+  $ionicLoading.show({
+    content: 'Loading',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
+
+  $timeout(function () {
+    $ionicLoading.hide();
+    _this.loaded();
+  }, 1200);
+
+  this.loaded = function(){
+    $('.all-content').fadeIn();
+    $('.all-content').animo( { animation: 'fadeInRight', duration: 0.4 });
+  }
 
   this.getItemsSuccess = function(data){
     _this.items = data;
@@ -106,5 +124,5 @@ var tipsController = function($scope, $state, $rootScope, $ionicModal, $ionicVie
 
 };
 
-tipsController.$inject = ['$scope', '$state', '$rootScope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService'];
+tipsController.$inject = ['$scope', '$state', '$rootScope', '$ionicModal', '$ionicViewService', '$ionicLoading', 'cameraService', '$timeout'];
 app.controller('TipsCtrl', tipsController);
