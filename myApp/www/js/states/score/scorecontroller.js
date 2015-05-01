@@ -1,6 +1,6 @@
 var app = angular.module('score.controller', ['app.controller']);
 
-var scoreController = function($scope, $state, $rootScope, $timeout){
+var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoading){
 	var _this = this;
 	
 	this.score = {};
@@ -20,25 +20,21 @@ var scoreController = function($scope, $state, $rootScope, $timeout){
 		}	
 
 		
-	};
+	}
 
-	this.animateLine = function(){
+	this.countUp = function(){
 		console.log('test');
-		$scope.$apply(function () {	
-			$('.line').show();
-			$('.line').animo({ 
-		    animation: 'fadeInDown', duration: 1.5}, function() {
-	        $('.line').animo( { animation: 'fadeOutUp', duration: 1.3 }, function(){
-	      })
-	    });
-	  });     
+		for (var i = 0; i < _this.score; i++) {
+			$scope.$apply(function () {
+				_this.score--;
+			});	
+		};
+
+		$('.line').animate({top: '50%'});
+	 	$('.line').animate({top: '40%'});
 	}
 
 	this.score = _this.getPoints();
-
-	$timeout(function () {
-		_this.animateLine();
-	}, 2200);	
 
 }
 

@@ -39,7 +39,6 @@
 
 .line{
   position: absolute;
-  display: none !important;
   left: 53%;
   top: 40%;
   -webkit-transform: translate(-50%, -50%);
