@@ -113,6 +113,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       function stutterIncrease(){
         $scope.$apply(function () {
           _this.points = (_this.points / 2);
+
         });
           $('.score-points').css("font-size", "3.5em");
           $('.score').animo( {  animation: 'shake', duration: 0.8 });
@@ -369,6 +370,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       }
       
       savedData.push(dailyData);
+      localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
       localStorage.setItem('dailyData', JSON.stringify(savedData));
       $scope.showAlertSaved();
     }else{
@@ -389,6 +391,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         }
         
         dailySession.push(dailyData);
+        localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
         $scope.showAlertSaved();  
 
@@ -405,6 +408,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         }
         
         dailySession.push(dailyData);
+        localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
       }
     }

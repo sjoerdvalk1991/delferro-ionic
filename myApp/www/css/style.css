@@ -33,6 +33,20 @@
   padding: 5px !important;
 }
 
+#svg2{
+  margin: 0 auto;
+}
+
+.line{
+  position: absolute;
+  display: none !important;
+  left: 53%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
 .size-xxl{
   font-size: 16px;
   color: #fff;
@@ -54,6 +68,16 @@
    color: #fff !important;  
 }
 
+
+.card, .list-inset{
+  background-color: none;
+  background: transparent;
+}
+
+input[readonly]:not(.cloned-text-input){
+  background-color: none;
+  background: transparent;
+}
 
 /*input{
   background-color: none;

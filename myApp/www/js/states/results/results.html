@@ -10,7 +10,7 @@
     <div class="card datepick">
       <label class="item item-input">
         <input type="text" 
-          placeholder="Pick date" 
+          placeholder="Kies een datum" 
           ng-model="datepicker" 
           name="datepicker" 
           ng-click="resultsCtrl.opendateModal()" 
@@ -21,7 +21,7 @@
     	<ion-list id="staggered-test">
   	    <a ng-repeat="result in resultsCtrl.results" class="text-nodeco" href="#/app/result/{{result.date}}">
   	      <ion-item class="item item-thumbnail-left">
-  	        <img style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
+  	        <img class="br-100" style="width: 100; height: 100%;" src="img/delferro-oefening.jpg">
   	        <h2>Datum: {{result.date}}</h2>
   	        <p>Dagelijks resultaat</p>
   	      </ion-item>

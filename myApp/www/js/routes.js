@@ -2,6 +2,7 @@ var app = angular.module('starter', [
   'ionic',
   'app.controller',
   'goals.controller',
+  'score.controller',
   'tips.controller',
   'tip.controller',
   'results.controller',
@@ -111,6 +112,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuContent' : {
           templateUrl: "js/states/goal/goal.html"
+        }
+      }
+    }) 
+
+    .state('app.score', {
+      url:"/score",
+      views: {
+        'menuContent' : {
+          templateUrl: "js/states/score/score.html"
         }
       }
     }) 
