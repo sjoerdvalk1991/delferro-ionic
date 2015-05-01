@@ -33,8 +33,23 @@
   padding: 5px !important;
 }
 
+.size-xxl{
+  font-size: 16px;
+  color: #fff;
+}
+
+/*input{
+  background-color: none;
+  background: transparent;
+}*/
+
+
 .br-100{
   border-radius: 100% !important;
+}
+
+.text-white{
+  color: #fff !important;
 }
 
 .plxxl{
@@ -45,14 +60,18 @@
   margin-top: -5px;
 }
 
+.row + .row {
+  margin-top: -10px;
+}
+
 .prxxl{
   padding-right: 25px;
 }
 
 h3.header{
-  color: rgb(82, 101, 162);
+  color: #fff;
   font-family: 'Roboto', cursive !important;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 300;
   margin-bottom: 0px;
   letter-spacing: 1.20000004768372px;
@@ -81,7 +100,7 @@ h3.header{
 }
 
 .red{
-  background-color: red;
+  background-color: #FF6E5E;
 }
 
 .right{
@@ -118,10 +137,16 @@ h3.header{
 
 .button{
   color: #fff;
+  background: transparent !important;
 }
 
 .button-large{
   margin-top: 30px;
+}
+
+.button.button-positive{
+  background-color: none !important;
+  background: transparent !important;
 }
 
 .text-nodeco{
@@ -132,13 +157,19 @@ h3.header{
   left: -300;
 }
 
+.item{
+  background-color: none !important;
+  background: transparent !important;
+  color: #fff !important;
+}
+
 h1.header{
-  color: #000 !important;
+  color: #fff !important;
   font-family: 'Roboto', cursive !important;
 }
 
 h2{
-  color: #000;
+  color: #fff;
   font-family: 'Roboto', cursive !important;
 }
 
@@ -151,15 +182,33 @@ h2{
 }
 
 .item {
-  background-color: #fff;
   color: #000;
   font-family: 'Roboto', cursive !important;
 }
 
+.item p{
+  color: #fff;
+}
+
+.item-complex .item-content, .item-radio .item-content{
+  color: #fff !important;
+  background-color: none !important;
+  background: transparent !important;
+}
+
+.item-stacked-label input, .item-stacked-label textarea{
+  color: #fff !important;
+  background-color: none !important;
+  background: transparent !important;
+}
+
+.input-label{
+  color: #fff;
+}
+
 .item .item-content{
-  background-color: #fff !important;
   font-family: 'Roboto', cursive !important;
-  color: #000 !important;
+  color: #fff !important;
 }
 
 .video-container {
@@ -194,7 +243,7 @@ h2{
 .pt-stutter{
   display : none;
   position: absolute;
-  background-color: red;
+  background-color: #FF6E5E;
   color: #fff;
   padding: 10px;
   height: 120px;
@@ -205,10 +254,50 @@ h2{
   z-index: 100;
 }
 
+.checkbox input:before, .checkbox .checkbox-icon:before{
+  border-color: #1abc9c;
+  background-color: none !important;
+  background: transparent !important;
+}
+
+.pt-tel{
+  display : none;
+  position: absolute;
+  background-color: #1abc9c;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  right: 40px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.scroll-content{
+ background: url(../img/iphone-3.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .pt-stutter .after-stutter:after{
     content: "";
   border: 30px solid transparent;
-  border-top: 40px solid red;
+  border-top: 40px solid #FF6E5E;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 60%;
+} 
+
+.pt-tel .after-stutter:after{
+    content: "";
+  border: 25px solid transparent;
+  border-top: 35px solid #1abc9c;
   position: absolute;
   left: 65%;
   -ms-transform: rotate(65deg); /* IE 9 */
@@ -237,6 +326,20 @@ h2{
   z-index: 100;
 }
 
+.pt-tel-10{
+  display : none;
+  position: absolute;
+  background-color: #FF6E5E;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  left: 10px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
 .pt-stutter-10 .after-stutter-10:after{
   content: "";
   border: 30px solid transparent;
@@ -247,7 +350,19 @@ h2{
   -webkit-transform: rotate(65deg); /* Safari */
   transform: rotate(65deg);
   top: 60%;
-} 
+}
+
+.pt-tel-10 .after-stutter-10:after{
+  content: "";
+  border: 25px solid transparent;
+  border-top: 35px solid #FF6E5E;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 60%;
+}  
 
 .points-stutter-10{
   position: absolute;
@@ -322,7 +437,21 @@ h2{
 .pt--10{
   display : none;
   position: absolute;
-  background-color: red;
+  background-color: #FF6E5E;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  right: 50px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.ch--10{
+  display : none;
+  position: absolute;
+  background-color: #FF6E5E;
   color: #fff;
   padding: 10px;
   height: 120px;
@@ -342,7 +471,19 @@ h2{
 .pt--10 .after-10:after{
   content: "";
   border: 20px solid transparent;
-  border-top: 30px solid red;
+  border-top: 30px solid #FF6E5E;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 70%;
+}
+
+.ch--10 .after-10:after{
+  content: "";
+  border: 20px solid transparent;
+  border-top: 30px solid #FF6E5E;
   position: absolute;
   left: 65%;
   -ms-transform: rotate(65deg); /* IE 9 */
@@ -352,6 +493,20 @@ h2{
 }
 
 .pt-10{
+  display : none;
+  position: absolute;
+  background-color: #1abc9c;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  right: 70px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.ch-10{
   display : none;
   position: absolute;
   background-color: #1abc9c;
@@ -375,7 +530,19 @@ h2{
   -webkit-transform: rotate(65deg); /* Safari */
   transform: rotate(65deg);
   top: 70%;
-} 
+}
+
+.ch-10 .after:after{
+  content: "";
+  border: 20px solid transparent;
+  border-top: 30px solid #1abc9c;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 70%;
+}  
 
 .points{
   position: absolute;
@@ -401,7 +568,8 @@ h2{
 
 .slider-slide{
   overflow: hidden;
-  background-color: #fff;
+  background-color: none;
+  background: transparent;
   text-align: center;
 }
 
@@ -495,12 +663,15 @@ ion-slide .box{
 
 .lay-over{
   color: #fff;
-  background-color: #000;
-  opacity: 0.62;
+  background: rgba(0, 0, 0, 0.5);
   position: absolute;
   width: 93%;
   height: 200px;
   top: 0;
+}
+
+.slider-pager .slider-pager-page {
+  color: #fff;
 }
 
 .lay-over > span{
@@ -534,7 +705,7 @@ ion-slide .box{
   width: 98%;
   height: 97%;
   margin-left: 5px;
-  background-color: #000;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0.57;
   position: absolute;
   top: 0;

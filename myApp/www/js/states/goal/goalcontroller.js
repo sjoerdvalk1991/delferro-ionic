@@ -73,6 +73,11 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
     // Add values from form to object
     newItem.title = form.title.$modelValue;
     newItem.description = form.description.$modelValue;
+    
+    if(_this.lastPhoto){
+      newItem.url = _this.lastPhoto[_this.lastPhoto.length-1];  
+    }
+    
     // If this is the first item it will be the default item
     if (newItem.title.length == 0) {
       newItem.useAsDefault = true;

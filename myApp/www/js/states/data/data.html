@@ -1,14 +1,9 @@
-<ion-view title="Schema" ng-controller="DataCtrl as dataCtrl">
+<ion-view title="Vul je schema in" ng-controller="DataCtrl as dataCtrl">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button menu-toggle>
     <span class="score">Score: <span class="score-points">{{dataCtrl.points}}</span></span>
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
-  <div class="row">
-    <div class="col col text-center pos-rel">
-      <h1 class="header">Vul je schema in</h1>
-    </div>
-  </div>
   <div class="row">
     <div class="col col text-center">
       <h3 class="header">Aantal keer gestotterd</h3>
@@ -23,7 +18,7 @@
       <span class="after-stutter"></span>
     </p> 
     <div class="col col-80">
-      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.stutter}}</h2>
+      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.stutter}}</h2>
     </div>
     <p class="pt-stutter-10">
       <span class="points-stutter-10">Punten verdubbeld</span>
@@ -42,17 +37,17 @@
     <div class="col col-10 br-100">
       <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('telefoneren')"></button>
     </div>
- <!--    <p class="pt-stutter">
-      <span class="points-stutter">Punten gehalveerd</span>
+    <p class="pt-tel">
+      <span class="points-stutter">{{dataCtrl.telephonePoint}} ptn!</span>
       <span class="after-stutter"></span>
-    </p> --> 
+    </p> 
     <div class="col col-80">
       <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.telephone}}</h2>
     </div>
-    <!-- <p class="pt-stutter-10">
-      <span class="points-stutter-10">Punten verdubbeld</span>
+    <p class="pt-tel-10">
+      <span class="points-stutter-10">-10 ptn</span>
       <span class="after-stutter-10"></span>
-    </p> -->
+    </p>
     <div class="col col-10 br-100"> 
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('telefoneren')"></button>
     </div>
@@ -111,9 +106,17 @@
     <div class="col col-30">
       <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
     </div>
+     <p class="ch--10">
+      <span class="points-10">-10 ptn!</span>
+      <span class="after-10"></span>
+    </p>
     <div class="col col-40">
       <h2 class="size-xxl text-center mtxxl">{{dataCtrl.challenge}}</h2>
     </div>
+    <p class="ch-10">
+      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
+      <span class="after"></span>
+    </p>
     <div class="col col-30"> 
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
     </div>

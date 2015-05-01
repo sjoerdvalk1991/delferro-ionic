@@ -3,7 +3,7 @@ var app = angular.module('movie.controller', ['app.controller']);
 var movieController = function($scope, $rootScope, $state, params, $ionicModal, $ionicViewService){
   var _this = this;
   this.sort = params.value;
-  this.clipSrc = 'img/coffee.MOV';
+  this.clipSrc = '../img/coffee.MOV';
  
 	$ionicModal.fromTemplateUrl('js/states/movies/video.html', function(modal) {
 	  $scope.openMovie = modal;

@@ -6,6 +6,8 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.stutter = 0;
   this.stop = 0;
   this.stopPoint = 0;
+  this.challengePoint = 0;
+  this.telephonePoint = 0;
   this.challenge = 0;
   this.points = 0;
   this.telephone = 0;
@@ -118,6 +120,9 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
 
       }
 
+
+
+
     }else if(type == 'stoppen'){
       _this.stop++;
        _this.stopPoint = (_this.stopPoint + 10);
@@ -138,13 +143,67 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           
           $('.score').animo( {  animation: 'tada', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
-      }  
+
+          _this.stopPoint = 0;   
+      }
+
+
+      }else if(type == 'telefoneren'){
+      _this.telephone++;
+       _this.telephonePoint = (_this.telephonePoint + 10);
+      $('.pt-tel').show();
+      $('.pt-tel').animo( { 
+        animation: 'fadeInUp', duration: 1.5}, function() {
+        $('.pt-tel').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-tel').hide();
+          
+        }, telephoneIncrease());
+      });
+
+      function telephoneIncrease(){
+        $('.score-points').css("font-size", "2.5em");
+        $scope.$apply(function () {
+          _this.points = (_this.points + 10);
+        });
+          
+          $('.score').animo( {  animation: 'tada', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+          _this.telephonePoint = 0;   
+      }   
+
+
+
+
 
     }else if(type == 'uitdaging'){   
       _this.challenge++;
 
-    }else if (type = 'telefoneren'){
-      _this.telephone++;
+      _this.challengePoint = (_this.challengePoint + 25);
+      $('.ch-10').show();
+      $('.ch-10').animo( { 
+        animation: 'fadeInUp', duration: 1.5}, function() {
+        $('.ch-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.ch-10').hide();
+          
+        }, challengeIncrease());
+      });
+
+      function challengeIncrease(){
+        $('.score-points').css("font-size", "2.5em");
+        $scope.$apply(function () {
+          _this.points = (_this.points + 25);
+        });
+          
+          $('.score').animo( {  animation: 'tada', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+        _this.challengePoint = 0;    
+      }
+
+
+
+
 
     }else{
       
@@ -173,6 +232,9 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           $('.score-points').css("font-size", "1.5em");
 
       }  
+
+
+
     }else if((type == 'stoppen')&&(_this.stop > 0)){
       _this.stop--;
       $('.pt--10').show();
@@ -192,9 +254,56 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           $('.score').animo( {  animation: 'shake', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
+      }
+
+
+      }else if((type == 'telefoneren')&&(_this.telephone > 0)){
+     _this.telephone--;
+      $('.pt-tel-10').show();
+      $('.pt-tel-10').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.pt-tel-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.pt-tel-10').hide();
+          
+        }, telephoneDecrease());
+      });
+
+      function telephoneDecrease(){
+        $scope.$apply(function () {
+          _this.points = (_this.points - 10);
+        });
+          $('.score-points').css("font-size", "3.5em");
+          $('.score').animo( {  animation: 'shake', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
       }  
+
+
+
+
     }else if((type == 'uitdaging')&&(_this.challenge > 0)){   
       _this.challenge--;
+
+      $('.ch--10').show();
+      $('.ch--10').animo( { 
+        animation: 'fadeInUp', duration: 1.4}, function() {
+        $('.ch--10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+          $('.ch--10').hide();
+          
+        }, challengeDecrease());
+      });
+
+      function challengeDecrease(){
+        $scope.$apply(function () {
+          _this.points = (_this.points - 25);
+        });
+          $('.score-points').css("font-size", "3.5em");
+          $('.score').animo( {  animation: 'shake', duration: 0.8 });
+          $('.score-points').css("font-size", "1.5em");
+
+      }  
+
+
     }else{
 
     }   
@@ -274,6 +383,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           'stutter' : _this.stutter,
           'stop': _this.stop,
           'challenge': _this.challenge,
+          'telephone': _this.telephone,
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
         }
@@ -289,6 +399,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           'stutter' : _this.stutter,
           'stop': _this.stop,
           'challenge': _this.challenge,
+          'telephone': _this.telephone,
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
         }
