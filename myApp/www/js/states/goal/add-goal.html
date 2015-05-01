@@ -1,4 +1,4 @@
-  <div class="modal">
+  <div class="modalform">
     <div class="bar bar-header bar-stable">
       <ion-button class="button white icon-left ion-chevron-left button-clear" ng-click="goalsCtrl.leaveAddChangeDialog()">Terug</ion-button>
   		<h1 class="title">Voeg doel toe</h1>
@@ -11,23 +11,9 @@
 			    <input type="text" placeholder="" name="title" ng-model="title" required />					
 			  </li>
 			   <li class="item item-input item-stacked-label">
-			  	<span class="input-label">Beschrijving</span>
-			    <input type="text" placeholder="" name="description" ng-model="description" required />					
+			  	<span class="input-label">Aantal</span>
+			    <input type="number" placeholder="1" name="count" ng-model="count" required />					
 			  </li>
-			  <div class="row text-center">
-			  <h2>Hoevaak ga je dit doel stellen vandaag?</h2>
-			  	
-			  		<div class="col col-10 br-100">
-				      <button class="button-block left button button-assertive icon ion-minus" ng-click="goalsCtrl.goalCount('plus')"></button>
-				    </div>
-				    <div class="col col-80">
-				    	<span class="text-center mtxxl">{{goalsCtrl.count}}</h2>
-				    </div>
-				    <div class="col col-10 br-100">
-				      <button class="button-block left button button-positive icon ion-minus" ng-click="goalsCtrl.goalCount('plus')"></button>
-				    </div>
-			  		
-			  </div>
 				<div class="row text-center">
 					<div class="col col-40">
 						<ion-button ng-init="" class="button button-block button-positive" ng-click="goalsCtrl.getPhoto()">

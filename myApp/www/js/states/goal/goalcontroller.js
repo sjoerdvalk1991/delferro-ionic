@@ -10,8 +10,8 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
   this.camera = cameraService;
   this.photo = false;
 
-	$ionicModal.fromTemplateUrl('js/states/goal/add-goal.html', function(modal) {
-	  $scope.addDialog = modal;
+	$ionicModal.fromTemplateUrl('js/states/goal/add-goal.html', function(modalform) {
+	  $scope.addDialog = modalform;
 	}, {
 	  scope: $scope,
 	  animation: 'slide-in-up',
@@ -47,18 +47,22 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
 
   this.leaveAddChangeDialog = function(newItem) {
     
+  if(newItem != null){
 
     if(_this.goals){
+       var goalAr = _this.goals;
+       goalAr.push(newItem);
+       localStorage.setItem('goalAr', JSON.stringify(goalAr));
+
+
       
-
-      console.log('test');
-
     }else{
-      goalAr = [];
+      var goalAr = [];
       goalAr.push(newItem);
       localStorage.setItem('goalAr', JSON.stringify(goalAr));
     }
 
+  }  
 
     $scope.addDialog.hide();
     _this.goals = JSON.parse(localStorage.getItem('goalAr'));
@@ -68,27 +72,34 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
   }
 
 
+
   this.addItem = function(form) {
     var newItem = {};
     // Add values from form to object
     newItem.title = form.title.$modelValue;
-    newItem.description = form.description.$modelValue;
+    if (newItem.count == null){
+      newItem.count = 1;
+    }else{
+
+    newItem.count = form.count.$modelValue;
+
+    }
     
     if(_this.lastPhoto){
       newItem.url = _this.lastPhoto[_this.lastPhoto.length-1];  
     }
-    
+
     // If this is the first item it will be the default item
     if (newItem.title.length == 0) {
       newItem.useAsDefault = true;
     } else {
-      // Remove old default entry from list 
+      _this.leaveAddChangeDialog(newItem);
       if (newItem.useAsDefault) {
         
       }
   	}
 
-    _this.leaveAddChangeDialog(newItem);
+    
 
   }
  

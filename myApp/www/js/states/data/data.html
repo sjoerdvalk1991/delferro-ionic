@@ -75,8 +75,32 @@
     <div class="col col-10 br-100"> 
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('stoppen')"></button>
     </div>
-  </div>
+  </div> 
   <div class="row">
+    <div class="col col text-center">
+      <h3 class="header">Aantal uitdagingen</h3>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col col-10 br-100">
+      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
+    </div>
+     <p class="ch--10">
+      <span class="points-10">-10 ptn!</span>
+      <span class="after-10"></span>
+    </p>
+    <div class="col col-40">
+      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.challenge}}</h2>
+    </div>
+    <p class="ch-10">
+      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
+      <span class="after"></span>
+    </p>
+    <div class="col col-10 br-100"> 
+      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
+    </div>
+  </div>
+    <div class="row">
     <div class="col col text-center">
       <h3 class="header">Oefeningen</h3>
     </div>
@@ -96,31 +120,7 @@
       <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
       {{item.text }}
     </ion-checkbox>
-  </div>   
-  <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Aantal uitdagingen</h3>
-    </div>
-  </div>    
-  <div class="row">
-    <div class="col col-30">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
-    </div>
-     <p class="ch--10">
-      <span class="points-10">-10 ptn!</span>
-      <span class="after-10"></span>
-    </p>
-    <div class="col col-40">
-      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.challenge}}</h2>
-    </div>
-    <p class="ch-10">
-      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
-      <span class="after"></span>
-    </p>
-    <div class="col col-30"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
-    </div>
-  </div>
+  </div>  
   <div class="row">
     <div class="col">
       <button class="button button-block button-positive" ng-click="dataCtrl.dayresultSaver()">

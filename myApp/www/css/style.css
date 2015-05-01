@@ -38,6 +38,23 @@
   color: #fff;
 }
 
+::-webkit-input-placeholder {
+   color: #fff !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff !important; 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff !important;
+}
+
+:-ms-input-placeholder {  
+   color: #fff !important;  
+}
+
+
 /*input{
   background-color: none;
   background: transparent;
@@ -54,6 +71,10 @@
 
 .plxxl{
   padding-left: 25px;
+}
+
+.pll{
+  padding-left: 10px;
 }
 
 .neg-mt-5{
