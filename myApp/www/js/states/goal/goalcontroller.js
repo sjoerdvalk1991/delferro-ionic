@@ -78,7 +78,7 @@ var goalsController = function($scope, $state, $rootScope, $ionicModal, $ionicVi
     // Add values from form to object
     newItem.title = form.title.$modelValue;
     if (newItem.count == null){
-      newItem.count = 1;
+      newItem.count = 2;
     }else{
 
     newItem.count = form.count.$modelValue;

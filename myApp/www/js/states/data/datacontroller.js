@@ -6,6 +6,8 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.stutter = 0;
   this.stop = 0;
   this.stopPoint = 0;
+  this.dailyGoal = {};
+  this.goalProgress = 0;
   this.challengePoint = 0;
   this.telephonePoint = 0;
   this.challenge = 0;
@@ -17,7 +19,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.practise = [
     { text: "Oefeningen gedaan", checked: false }
   ];
-  this.consequent = [  
+  this.consequent = [
     { text: "Consequent geweest", checked: false }
   ];
 
@@ -29,15 +31,15 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
 
     if(dd<10) {
         dd='0'+dd
-    } 
+    }
 
     if(mm<10) {
         mm='0'+mm
-    } 
+    }
 
     today = dd+'-'+mm+'-'+yyyy;
     return today;
-  }  
+  }
 
   this.today = this.theDate();
 
@@ -53,7 +55,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       _this.consequent[0].checked = dailyData.consequent;
     }else{
 
-    }  
+    }
   }else{
 
   }
@@ -66,12 +68,12 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
    alertPopup.then(function(res) {
      console.log('Warning 0');
    });
-  };  
+  };
 
   if(localStorage.getItem('practisewarning')){
     $scope.showPractise();
   }
-  
+
   $scope.showAlertSaved = function() {
    var alertPopup = $ionicPopup.alert({
      title: 'Opgeslagen',
@@ -102,11 +104,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
      _this.stutter++;
 
      $('.pt-stutter').show();
-      $('.pt-stutter').animo( { 
+      $('.pt-stutter').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt-stutter').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-stutter').hide();
-          
+
         }, stutterIncrease());
       });
 
@@ -128,11 +130,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       _this.stop++;
        _this.stopPoint = (_this.stopPoint + 10);
       $('.pt-10').show();
-      $('.pt-10').animo( { 
+      $('.pt-10').animo( {
         animation: 'fadeInUp', duration: 1.5}, function() {
         $('.pt-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-10').hide();
-          
+
         }, pointIncrease());
       });
 
@@ -141,11 +143,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         $scope.$apply(function () {
           _this.points = (_this.points + 10);
         });
-          
+
           $('.score').animo( {  animation: 'tada', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-          _this.stopPoint = 0;   
+          _this.stopPoint = 0;
       }
 
 
@@ -153,11 +155,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       _this.telephone++;
        _this.telephonePoint = (_this.telephonePoint + 10);
       $('.pt-tel').show();
-      $('.pt-tel').animo( { 
+      $('.pt-tel').animo( {
         animation: 'fadeInUp', duration: 1.5}, function() {
         $('.pt-tel').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-tel').hide();
-          
+
         }, telephoneIncrease());
       });
 
@@ -166,27 +168,27 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         $scope.$apply(function () {
           _this.points = (_this.points + 10);
         });
-          
+
           $('.score').animo( {  animation: 'tada', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-          _this.telephonePoint = 0;   
-      }   
+          _this.telephonePoint = 0;
+      }
 
 
 
 
 
-    }else if(type == 'uitdaging'){   
+    }else if(type == 'uitdaging'){
       _this.challenge++;
 
       _this.challengePoint = (_this.challengePoint + 25);
       $('.ch-10').show();
-      $('.ch-10').animo( { 
+      $('.ch-10').animo( {
         animation: 'fadeInUp', duration: 1.5}, function() {
         $('.ch-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.ch-10').hide();
-          
+
         }, challengeIncrease());
       });
 
@@ -195,11 +197,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         $scope.$apply(function () {
           _this.points = (_this.points + 25);
         });
-          
+
           $('.score').animo( {  animation: 'tada', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-        _this.challengePoint = 0;    
+        _this.challengePoint = 0;
       }
 
 
@@ -207,8 +209,8 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
 
 
     }else{
-      
-    }	
+
+    }
   }
 
   this.decrease = function(type){
@@ -216,11 +218,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   	 _this.stutter--;
 
      $('.pt-stutter-10').show();
-      $('.pt-stutter-10').animo( { 
+      $('.pt-stutter-10').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt-stutter-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-stutter-10').hide();
-          
+
         }, stutterDecrease());
       });
 
@@ -232,18 +234,18 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           $('.score').animo( {  animation: 'shake', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-      }  
+      }
 
 
 
     }else if((type == 'stoppen')&&(_this.stop > 0)){
       _this.stop--;
       $('.pt--10').show();
-      $('.pt--10').animo( { 
+      $('.pt--10').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt--10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt--10').hide();
-          
+
         }, pointDecrease());
       });
 
@@ -261,11 +263,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       }else if((type == 'telefoneren')&&(_this.telephone > 0)){
      _this.telephone--;
       $('.pt-tel-10').show();
-      $('.pt-tel-10').animo( { 
+      $('.pt-tel-10').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt-tel-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-tel-10').hide();
-          
+
         }, telephoneDecrease());
       });
 
@@ -277,20 +279,20 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           $('.score').animo( {  animation: 'shake', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-      }  
+      }
 
 
 
 
-    }else if((type == 'uitdaging')&&(_this.challenge > 0)){   
+    }else if((type == 'uitdaging')&&(_this.challenge > 0)){
       _this.challenge--;
 
       $('.ch--10').show();
-      $('.ch--10').animo( { 
+      $('.ch--10').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.ch--10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.ch--10').hide();
-          
+
         }, challengeDecrease());
       });
 
@@ -302,23 +304,23 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           $('.score').animo( {  animation: 'shake', duration: 0.8 });
           $('.score-points').css("font-size", "1.5em");
 
-      }  
+      }
 
 
     }else{
 
-    }   
-  } 
+    }
+  }
 
   this.practiseChecker = function(){
     var checkValue = _this.practise[0].checked;
     if(checkValue == true){
       $('.pt-practise').show();
-      $('.pt-practise').animo( { 
+      $('.pt-practise').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt-practise').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-practise').hide();
-          
+
         }, pointPractise());
       });
     }
@@ -337,11 +339,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
     var checkValue = _this.consequent[0].checked;
     if(checkValue == true){
       $('.pt-consequent').show();
-      $('.pt-consequent').animo( { 
+      $('.pt-consequent').animo( {
         animation: 'fadeInUp', duration: 1.4}, function() {
         $('.pt-consequent').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
           $('.pt-consequent').hide();
-          
+
         }, pointConsequent());
       });
     }
@@ -357,7 +359,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   }
 
   this.dayresultSaver = function(){
-    if(!localStorage.getItem('dailyData')){  
+    if(!localStorage.getItem('dailyData')){
       var savedData = [];
 
       var dailyData = {
@@ -368,7 +370,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         'practise': _this.practise[0].checked,
         'consequent': _this.consequent[0].checked,
       }
-      
+
       savedData.push(dailyData);
       localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
       localStorage.setItem('dailyData', JSON.stringify(savedData));
@@ -389,11 +391,11 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
         }
-        
+
         dailySession.push(dailyData);
         localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
-        $scope.showAlertSaved();  
+        $scope.showAlertSaved();
 
       }else{
 
@@ -406,14 +408,45 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
         }
-        
+
         dailySession.push(dailyData);
         localStorage.setItem('dailyPoints', JSON.stringify(_this.points));
         localStorage.setItem('dailyData', JSON.stringify(dailySession));
       }
     }
-  }    
-};  
+  }
+
+  this.getGoal = function(){
+    if(JSON.parse(localStorage.getItem('goalAr'))){
+      var goalAr = JSON.parse(localStorage.getItem('goalAr'));
+
+      var goal = goalAr[0].title;
+      var count = goalAr[0].count;
+
+
+      return goal;
+
+
+    }
+  }
+
+  this.goalIncrease = function(){
+    var goalAr = JSON.parse(localStorage.getItem('goalAr'));
+    var count = goalAr[0].count;
+
+    var reached = count--;
+    var percentage = (count / reached);
+    console.log(percentage);
+    _this.goalProgress = percentage * 100;
+
+  }
+
+
+
+  this.dailyGoal = _this.getGoal();
+  
+
+};
 
 dataController.$inject = ['$rootScope', '$scope', '$ionicPopup', '$filter', 'pointService'];
 app.controller('DataCtrl', dataController);

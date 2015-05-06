@@ -76,7 +76,7 @@
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('stoppen')"></button>
     </div>
   </div> 
-  <div class="row">
+   <div class="row">
     <div class="col col text-center">
       <h3 class="header">Aantal uitdagingen</h3>
     </div>
@@ -100,11 +100,33 @@
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
     </div>
   </div>
-    <div class="row">
+   <div class="row mtxl">
     <div class="col col text-center">
-      <h3 class="header">Oefeningen</h3>
+      <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
     </div>
   </div>
+   <div class="row">
+    <div class="col col-10 br-100">
+      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
+    </div>
+     <p class="ch--10">
+      <span class="points-10">-10 ptn!</span>
+      <span class="after-10"></span>
+    </p>
+    <div class="col col-40">
+      <h2 class="size-xxl goalprog pos-rel text-center mtxxl">{{dataCtrl.goalProgress}}%
+        <div class="goalbar" style="height: 100%; position: absolute; width: {{dataCtrl.goalProgress}}%;"></div>
+      </h2>
+    </div>
+    <p class="ch-10">
+      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
+      <span class="after"></span>
+    </p>
+    <div class="col col-10 br-100"> 
+      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.goalIncrease()"></button>
+    </div>
+  </div>
+
   <div>
     <p class="pt-practise">
       <span class="points-practise">100 ptn, Heel goed gedaan!</span>

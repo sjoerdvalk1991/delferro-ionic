@@ -106,7 +106,7 @@ input[readonly]:not(.cloned-text-input){
 }
 
 .row + .row {
-  margin-top: -10px;
+  margin-top: -20px;
 }
 
 .prxxl{
@@ -140,8 +140,28 @@ h3.header{
   width: 100%;
 }
 
+.goalprog{
+  border: 1px solid #2ecc71 !important; 
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 3px;
+}
+
+.goalbar{
+  background-color: #2ecc71 !important;
+  margin-top: -24px;
+  z-index: -2;
+}
+
+
 .mtxxl{
   margin-top: 20px !important;
+}
+
+.mtxl{
+  margin-top: 10px !important;
 }
 
 .mt-44{
