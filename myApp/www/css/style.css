@@ -76,6 +76,7 @@
 input[readonly]:not(.cloned-text-input){
   background-color: none;
   background: transparent;
+  color: #fff;
 }
 
 /*input{
@@ -110,6 +111,14 @@ input[readonly]:not(.cloned-text-input){
 
 .prxxl{
   padding-right: 25px;
+}
+
+h1.title{
+  font-family: 'Roboto', cursive !important;
+}
+
+h2{
+  font-family: 'Roboto', cursive !important;
 }
 
 h3.header{
@@ -188,10 +197,42 @@ h3.header{
   margin-top: 30px;
 }
 
+.pickadate-cell .pickadate-enabled{
+  color: #fff !important;
+}
+
+.pickadate a:visited, .pickadate a {
+  color: #fff !important;
+}
+
+.pickadate-centered-heading{
+  color: #fff !important;
+}
+
+.pickadate-cell .pickadate-today {
+  color: #000 !important;
+}
+
+.pickadate-cell .pickadate-active {
+  background-color: #eaeaea !important;
+  color: #000 !important;
+}
+
 .button.button-positive{
   background-color: none !important;
   background: transparent !important;
+  border-color: #2ecc71 !important;
 }
+
+.button.button-assertive{
+  border-color: #FF6E5E !important;
+}
+
+.modal {
+  background-color: none !important;
+  background: transparent !important;
+}
+
 
 .text-nodeco{
   text-decoration: none;
@@ -232,12 +273,18 @@ h2{
 
 .item p{
   color: #fff;
+  font-family: 'Roboto', cursive !important;
+}
+
+.item a{
+  font-family: 'Roboto', cursive !important;
 }
 
 .item-complex .item-content, .item-radio .item-content{
   color: #fff !important;
   background-color: none !important;
   background: transparent !important;
+  font-family: 'Roboto', cursive !important;
 }
 
 .item-stacked-label input, .item-stacked-label textarea{

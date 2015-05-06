@@ -130,27 +130,24 @@
               dates.push({date: date, className: className});
             }
 
-            console.log(dates);
-
             
             newDates = [];
             var storedDates = JSON.parse(localStorage.getItem('calenderData'));
-            console.log(storedDates);
 
             for (var i = 0; i < dates.length; i++) {
 
-              console.log(dates[i].date);
+             
 
-              //console.log("date",dates[i].date.format('YYYY-MM-DD'));
+              console.log("date",dates[i].date);
 
               for(var inner = 0; inner < storedDates.length; inner++){
-                //if(dates[i].date === storedDates[inner]._i){
-                //  dates[i].className = 'checked-date';
-
-                //}
+                if(dates[i].date === storedDates[inner]._i){
+                 dates[i].className = 'checked-date';
+                 console.log(dates[i].className);
+              }
 
                 var storedDate = moment(storedDates[inner]);
-                console.log("storedDate",storedDate.format('YYYY-MM-DD'));
+                  console.log("storedDate",storedDate.format('YYYY-MM-DD'));
 
               }
               newDates.push(dates[i]); 
@@ -158,7 +155,7 @@
 
 
             
-            scope.dates = dates;
+            scope.dates = newDates;
           };
 
           scope.setDate = function(dateObj) {
