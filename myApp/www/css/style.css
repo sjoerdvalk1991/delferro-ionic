@@ -631,6 +631,20 @@ h2{
   z-index: 100;
 }
 
+.goal-10{
+  display : none;
+  position: absolute;
+  background-color: #1abc9c;
+  color: #fff;
+  padding: 10px;
+  height: 120px;
+  right: 70px;
+  width: 160px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
 .pt-10 .after:after{
   content: "";
   border: 20px solid transparent;
@@ -653,7 +667,19 @@ h2{
   -webkit-transform: rotate(65deg); /* Safari */
   transform: rotate(65deg);
   top: 70%;
-}  
+}
+
+.goal-10 .after:after{
+  content: "";
+  border: 20px solid transparent;
+  border-top: 30px solid #1abc9c;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 70%;
+}   
 
 .points{
   position: absolute;

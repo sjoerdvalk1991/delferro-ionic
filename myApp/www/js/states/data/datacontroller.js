@@ -7,7 +7,10 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.stop = 0;
   this.stopPoint = 0;
   this.dailyGoal = {};
-  this.goalProgress = 0;
+  this.goalProgress = {};
+  this.goalCount = 0;
+  this.reachedCount = 0;
+  this.reachedGoalCount = 0;
   this.challengePoint = 0;
   this.telephonePoint = 0;
   this.challenge = 0;
@@ -423,6 +426,8 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       var goal = goalAr[0].title;
       var count = goalAr[0].count;
 
+      _this.goalCount = count;
+      _this.reachedGoalCount = count;
 
       return goal;
 
@@ -430,18 +435,58 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
     }
   }
 
-  this.goalIncrease = function(){
-    var goalAr = JSON.parse(localStorage.getItem('goalAr'));
-    var count = goalAr[0].count;
 
-    var reached = count--;
-    var percentage = (count / reached);
+
+  this.goalIncrease = function(){
+
+    _this.reachedCount = _this.reachedCount + 1;
+
+    var count =_this.goalCount;
+    var reached = count;
+    _this.goalCount = reached;
+    console.log(reached)
+    var percentage = (_this.reachedCount /  _this.goalCount);
     console.log(percentage);
     _this.goalProgress = percentage * 100;
+    
+    if(_this.reachedGoalCount > 1){
+    
+      _this.reachedGoalCount--;
+
+    }else{
+      _this.goalCompleted();
+    }
 
   }
 
+  this.goalCompleted = function(){
+    $('.goal-section').animo( {
+    animation: 'fadeOutRight', duration: 0.4}, function() {
+      $('.goal-section').hide(); 
+      $('.slide-up-part').animo( { 
+      animation: 'fadeInUp', duration: 1.0 }, function(){
+        $('.goal-10').show();
+        $('.goal-10').animo( {
+          animation: 'fadeInUp', duration: 1.4}, function() {
+            $('.goal-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
+            $('.goal-10').hide();
 
+            }, addGoalPoints());
+        });
+      });    
+    });     
+  
+    function addGoalPoints(){
+      $scope.$apply(function () {
+        _this.points = (_this.points + 250);
+      });
+        $('.score-points').css("font-size", "3.5em");
+        $('.score').animo( {  animation: 'tada', duration: 0.8 });
+        $('.score-points').css("font-size", "1.5em");
+
+
+    } 
+  }  
 
   this.dailyGoal = _this.getGoal();
   

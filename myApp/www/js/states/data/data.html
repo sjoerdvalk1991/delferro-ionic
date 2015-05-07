@@ -100,55 +100,58 @@
       <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
     </div>
   </div>
-   <div class="row mtxl">
-    <div class="col col text-center">
-      <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
+  <div class="goal-section">
+    <div class="row mtxl">
+      <div class="col col text-center">
+        <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col col-10 br-100">
+        <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
+      </div>
+       <p class="ch--10">
+        <span class="points-10">-10 ptn!</span>
+        <span class="after-10"></span>
+      </p>
+      <div class="col col-40">
+        <h2 class="size-xxl goalprog pos-rel text-center mtxxl">Nog {{dataCtrl.reachedGoalCount}} keer vandaag
+          <div class="goalbar" style="height: 100%; position: absolute; width: {{dataCtrl.goalProgress}}%;"></div>
+        </h2>
+      </div>
+      <div class="col col-10 br-100"> 
+        <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.goalIncrease()"></button>
+      </div>
     </div>
   </div>
-   <div class="row">
-    <div class="col col-10 br-100">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
-    </div>
-     <p class="ch--10">
-      <span class="points-10">-10 ptn!</span>
-      <span class="after-10"></span>
-    </p>
-    <div class="col col-40">
-      <h2 class="size-xxl goalprog pos-rel text-center mtxxl">{{dataCtrl.goalProgress}}%
-        <div class="goalbar" style="height: 100%; position: absolute; width: {{dataCtrl.goalProgress}}%;"></div>
-      </h2>
-    </div>
-    <p class="ch-10">
-      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
+  <div class="slide-up-part">
+    <p class="goal-10">
+      <span class="points">250 ptn!</span>
       <span class="after"></span>
     </p>
-    <div class="col col-10 br-100"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.goalIncrease()"></button>
-    </div>
-  </div>
-
-  <div>
-    <p class="pt-practise">
-      <span class="points-practise">100 ptn, Heel goed gedaan!</span>
-      <span class="after-practise"></span>
-    </p> 
-   <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
-      {{item.text }}
-    </ion-checkbox>
-    <p class="pt-consequent">
-      <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
-      <span class="after-consequent"></span>
-    </p> 
-      <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
-      {{item.text }}
-    </ion-checkbox>
-  </div>  
-  <div class="row">
-    <div class="col">
-      <button class="button button-block button-positive" ng-click="dataCtrl.dayresultSaver()">
-      Resultaten opslaan
-      </button> 
+    <div>
+      <p class="pt-practise">
+        <span class="points-practise">100 ptn, Heel goed gedaan!</span>
+        <span class="after-practise"></span>
+      </p> 
+     <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
+        {{item.text }}
+      </ion-checkbox>
+      <p class="pt-consequent">
+        <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
+        <span class="after-consequent"></span>
+      </p> 
+        <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
+        {{item.text }}
+      </ion-checkbox>
     </div>  
+    <div class="row">
+      <div class="col">
+        <button class="button button-block button-positive" ng-click="dataCtrl.dayresultSaver()">
+        Resultaten opslaan
+        </button> 
+      </div>  
+    </div>
   </div>
   </ion-content>
 </ion-view>
