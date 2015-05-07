@@ -333,7 +333,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         _this.points = (_this.points + 100);
       });
         $('.score-points').css("font-size", "3.5em");
-        $('.score').animo( {  animation: 'shake', duration: 0.8 });
+        $('.score').animo( {  animation: 'tada', duration: 0.8 });
         $('.score-points').css("font-size", "1.5em");
     }
   }
@@ -356,7 +356,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
         _this.points = (_this.points + 200);
       });
         $('.score-points').css("font-size", "3.5em");
-        $('.score').animo( {  animation: 'shake', duration: 0.8 });
+        $('.score').animo( {  animation: 'tada', duration: 0.8 });
         $('.score-points').css("font-size", "1.5em");
     }
   }
@@ -467,7 +467,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
       animation: 'fadeInUp', duration: 1.0 }, function(){
         $('.goal-10').show();
         $('.goal-10').animo( {
-          animation: 'fadeInUp', duration: 1.4}, function() {
+          animation: 'fadeInUp', duration: 1.0}, function() {
             $('.goal-10').animo( { animation: 'fadeOutUpBig', duration: 1.3 }, function(){
             $('.goal-10').hide();
 

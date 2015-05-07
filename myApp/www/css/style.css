@@ -201,7 +201,7 @@ h3.header{
 }
 
 .bar-stable{
-  background-color: #E6130D !important;
+  background-color: #FF6E5E !important;
 }
 
 .menu{
@@ -394,7 +394,7 @@ h2{
 }
 
 .pt-stutter .after-stutter:after{
-    content: "";
+  content: "";
   border: 30px solid transparent;
   border-top: 40px solid #FF6E5E;
   position: absolute;
