@@ -672,7 +672,7 @@ h2{
   z-index: 100;
 }
 
-.resultcloud .after:after{
+.resultcloud .after{
   content: "";
   border: 20px solid transparent;
   border-top: 30px solid #1abc9c;
