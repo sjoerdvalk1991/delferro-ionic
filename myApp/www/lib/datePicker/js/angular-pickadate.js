@@ -132,30 +132,36 @@
 
             
             newDates = [];
+            var formedDates = [];
             var storedDates = JSON.parse(localStorage.getItem('calenderData'));
+            for(var j = 0; j < storedDates.length; j++){
+              var storedDate = storedDates[j].substring(0,10);
+              formedDates.push(storedDate);
+              console.log('test');
+            }
+
+            console.log(formedDates);  
+
 
             for (var i = 0; i < dates.length; i++) {
+            
 
-             
-
-              console.log("date",dates[i].date);
-
-              for(var inner = 0; inner < storedDates.length; inner++){
-                if(dates[i].date === storedDates[inner]._i){
-                 dates[i].className = 'checked-date';
-                 console.log(dates[i].className);
-              }
-
-                var storedDate = moment(storedDates[inner]);
-                  console.log("storedDate",storedDate.format('YYYY-MM-DD'));
+              for(var inner = 0; inner < formedDates.length; inner++){
+              
+                if(dates[i].date == formedDates[inner]){
+                  dates[i].className += ' checked-date';
+                }    
 
               }
+
               newDates.push(dates[i]); 
             }
 
+            console.log(newDates);
 
             
             scope.dates = newDates;
+
           };
 
           scope.setDate = function(dateObj) {

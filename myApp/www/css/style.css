@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.checked-date{
+  background-color: #2ecc71 !important;  
+}
+
 .bg-white{
   background-color: #ffffff;
 }
