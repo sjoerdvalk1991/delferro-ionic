@@ -7,7 +7,6 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
   this.stop = 0;
   this.stopPoint = 0;
   this.dailyGoal = {};
-  this.goalProgress = {};
   this.goalCount = 0;
   this.reachedCount = 0;
   this.reachedGoalCount = 0;
@@ -435,8 +434,6 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
     }
   }
 
-
-
   this.goalIncrease = function(){
 
     _this.reachedCount = _this.reachedCount + 1;
@@ -447,7 +444,8 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
     console.log(reached)
     var percentage = (_this.reachedCount /  _this.goalCount);
     console.log(percentage);
-    _this.goalProgress = percentage * 100;
+    width = percentage * 100;
+    $('.goalbar').animate({width: width+'%'});
     
     if(_this.reachedGoalCount > 1){
     

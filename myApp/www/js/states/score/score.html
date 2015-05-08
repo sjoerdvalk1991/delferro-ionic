@@ -3,10 +3,10 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
-    <h3 class="header mtm">He Sjoerd, Je bent geweldig bezig!</h3>
+    <h3 class="header mtm mbxl">He Sjoerd, Je bent geweldig bezig!</h3>
     <div class="row text-center">
     <div class="col">
-      <h2 class="header text-center mtxxl">Je hebt vandaag al {{scoreCtrl.score}} punten gescoord!</h2>
+      <h2 class="header text-center mtxxl"><p class="score-p">Je hebt vandaag al <span id="countdown">{{scoreCtrl.score}}</span> punten gescoord!</p><p class="silver" style="margin-bottom: 20px;">je punten zijn verzilverd!</p></h2>
     </div>
     </div>
     <div class="row text-center">
@@ -57,13 +57,13 @@
 
 <svg class="line" viewBox="0 0 350 400" width="50px" height="160px" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
-  <path d="M10 80 Q 95 10 180 80" stroke="#334344" stroke-width="40" fill="transparent"/>
+  <path d="M10 80 Q 95 10 180 80" stroke="#334344" stroke-width="{{scoreCtrl.lineWidth}}" fill="transparent"/>
 
 </svg>
 
 
     </div>
-   <div class="row text-center">
+   <div class="row text-center silver-section">
       <div class="col col-40"> 
         <button class="button-block right button button-positive icon ion-plus" ng-click="scoreCtrl.countUp()">  Verzilver je punten!
         </button> 

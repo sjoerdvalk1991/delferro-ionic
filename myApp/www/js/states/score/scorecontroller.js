@@ -4,10 +4,9 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 	var _this = this;
 	
 	this.score = {};
+	this.lineWidth = 0;
 
 	this.getPoints = function(){
-
- 	
 
 		if(localStorage.getItem('dailyPoints')){  
 
@@ -18,20 +17,55 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 		}else{
 			return 0;
 		}	
-
 		
 	}
 
 	this.countUp = function(){
 		console.log('test');
-		for (var i = 0; i < _this.score; i++) {
-			$scope.$apply(function () {
-				_this.score--;
-			});	
-		};
 
-		$('.line').animate({top: '50%'});
-	 	$('.line').animate({top: '40%'});
+		function hideSilverButton(){
+      $('.silver-section').animo( {
+    	animation: 'fadeOutRight', duration: 0.5}, function() {
+      	$('.silver-section').hide(); 		
+    	});
+    };	
+
+		function stopAnimate(){
+				$('.line').animate({top: '40%'});
+      	$('.score-p').hide();
+      	$('.silver').css("display", "inline-block");
+      	$('.line').stop(true);
+      	$('.line').css("top", "40%");
+
+      	hideSilverButton();
+
+	        	
+  	}
+			
+		$('#countdown')
+			.prop('number', _this.score)
+	  	.animateNumber(
+		    {
+		      number: 0,
+		      numberStep: function(now, tween) {
+		        var target = $(tween.elem),
+	            rounded_now = Math.round(now);
+	            $('.line').animate({top: '50%'});
+	            	_this.lineWidth++;
+	            	console.log(_this.lineWidth);
+	 						$('.line').animate({top: '40%'});
+		        target.text(now === tween.end ? stopAnimate() : rounded_now);
+		        	
+		      }
+		    },
+		    4000,
+		    'linear'
+	  	)
+
+	  	
+
+
+		
 	}
 
 	this.score = _this.getPoints();

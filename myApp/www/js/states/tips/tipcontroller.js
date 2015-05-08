@@ -5,8 +5,7 @@ var tipController = function($scope, $rootScope, params){
   this.tips = {};
   this.items = '';
 
-
-   this.getItemsSuccess = function(data){
+  this.getItemsSuccess = function(data){
     _this.items = data;
       // http://jimhoskins.com/2012/12/17/angularjs-and-apply.html 
     $scope.$apply(); 

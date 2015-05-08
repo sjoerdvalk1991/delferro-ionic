@@ -29,6 +29,18 @@
   background-color: #ffffff;
 }
 
+.score-p{
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.silver{
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 50px !important;
+}
+
 .pas{
   padding: 5px !important;
 }
@@ -644,6 +656,33 @@ h2{
   border-radius: 100%;
   z-index: 100;
 }
+
+.resultcloud{
+  float: left;
+  position: relative;
+  background-color: #1abc9c;
+  display: inline-block;
+  color: #fff;
+  padding: 10px;
+  height: 50px;
+  right: 70px;
+  width: 80px;
+  font-size: 1.5em;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.resultcloud .after:after{
+  content: "";
+  border: 20px solid transparent;
+  border-top: 30px solid #1abc9c;
+  position: absolute;
+  left: 65%;
+  -ms-transform: rotate(65deg); /* IE 9 */
+  -webkit-transform: rotate(65deg); /* Safari */
+  transform: rotate(65deg);
+  top: 130%;
+} 
 
 .pt-10 .after:after{
   content: "";
