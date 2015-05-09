@@ -83,7 +83,7 @@
               disabledDates = scope.disabledDates || [],
               currentDate   = new Date();
 
-          scope.dayNames    = ['Ma', 'Di', 'Woe', 'Do', 'Vri', 'Zat', 'Zon'];
+          scope.dayNames    = ['Zon', 'Ma', 'Di', 'Woe', 'Don', 'Vrij', 'Zat'];
           scope.currentDate = currentDate;
 
           scope.render = function(initialDate) {
