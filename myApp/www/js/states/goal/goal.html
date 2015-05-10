@@ -10,9 +10,11 @@
     <h1 ng-if class="header mtm">He Sjoerd, Stel je doel voor vandaag</h1>
     <ion-list ng-repeat="item in goalsCtrl.goals">
     <a class="text-nodeco" href="#/app/tip/{{item.title}}">
-      <ion-item class="item item-thumbnail-left">
-        <h2>{{item.title}}</h2>
-        <p>{{item.count}} keer</p>
+      <ion-item class="item">
+          <p class="thumbnail-p">
+            <span class="date-result">{{item.count}}X</span>  
+         </p>
+        <h2 style="margin-top: 18px;">{{item.title}}</h2>
       </ion-item>
     </a>  
     </ion-list>  

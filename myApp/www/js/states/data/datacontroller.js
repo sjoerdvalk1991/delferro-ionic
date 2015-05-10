@@ -52,6 +52,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
     if(dailyData.date == _this.today){
       _this.stutter = dailyData.stutter;
       _this.stop = dailyData.stop;
+      _this.points = dailyData.points;
       _this.challenge = dailyData.challenge;
       _this.practise[0].checked = dailyData.practise;
       _this.consequent[0].checked = dailyData.consequent;
@@ -392,6 +393,7 @@ var dataController = function($rootScope, $scope, $ionicPopup, $filter, pointSer
           'telephone': _this.telephone,
           'practise': _this.practise[0].checked,
           'consequent': _this.consequent[0].checked,
+          'points': _this.points
         }
 
         dailySession.push(dailyData);

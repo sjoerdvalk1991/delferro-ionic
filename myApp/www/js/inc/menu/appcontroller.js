@@ -12,6 +12,8 @@ var appController = function($scope, $ionicModal, $timeout, $location, $q){
     { text: "Oefeningen melding", checked: false }
   ];
 
+  this.lineWidth = 1;
+
   if(localStorage.getItem('practisewarning')){
     _this.practise[0].checked = JSON.parse(localStorage.getItem('practisewarning'));  
   }
@@ -43,6 +45,18 @@ var appController = function($scope, $ionicModal, $timeout, $location, $q){
       _this.closeLogin();
     }, 1000);
   };
+
+  this.middleLine = function(){
+    if(localStorage.getItem('dailyData')){
+      var dailyLoad = JSON.parse(localStorage.getItem('dailyData'));
+      var yesterdayScore = dailyLoad[dailyLoad.length-1].points;
+      _this.lineWidth = yesterdayScore * 0.01;
+    }else{
+
+    }
+  }
+
+  this.middleLine();
 
   this.warning = function(){
     if(!localStorage.getItem('practisewarning')){

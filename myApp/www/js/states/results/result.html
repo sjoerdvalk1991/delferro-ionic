@@ -5,18 +5,39 @@
   <ion-content class="has-header">
   <div class="row text-center">
     <div class="col">
-      <h3 class="header">Dag resultaat is: 8.5</h3>
-     
-      <p class="mtxxl text-white mbxl">
-        Heel goed ga zo door! Dit niveau vast houden en je gaat met sprongen vooruit.
-        Geniet van het spreken!
+      <h3 class="header"><span class="">{{resultCtrl.result.day}}</span>{{resultCtrl.result.date}}</h3>
+       <p class="mtxxl text-white mbxl">
+        Heel goed, hogere score dan gisteren en je doel weer glansrijk behaald!
       </p>
+      <div class="text-left" style="">
+      <h2 class="header text-left">Dag resultaat is: 8.5</h2>
+      <h2 class="header text-left">Behaalde punten: {{resultCtrl.result.points}}</h2>
+      <ul class=" mtxl text-white"><h2 class="header">Behaalde doelen:</h2>
+        <li><h3 class="header text-left">- {{resultCtrl.goalCount}}X {{resultCtrl.goalText}}</h3></li>
+      </ul>
+      </div>
+      
+    
 
     </div>   
   </div>
   <div class="text-center">
-    <div class="" id="chart">
-    </div>
+    <ul class="chart">
+      <li>
+        <span style="height:5%; background-color: #d62728;" title="Stotteren"><span class="bar-count">15x</span></span>
+      </li>
+      <li>
+        <span style="height:70%; background-color: #98df8a;" title="Stoppen"><span class="bar-count">15x</span></span>
+      </li>
+      <li>
+        <span style="height:50%; background-color: #2ca02c;" title="Telefoneren"><span class="bar-count">15x</span></span>
+      </li>
+      <li>
+        <span style="height:15%; background-color: #2ca02c;" title="Uitdagingen"><span class="bar-count">15x</span></span>
+      </li>
+    </ul> 
+    <!-- <div class="" id="chart">
+    </div> -->
   </div> 
   </ion-content>
   <ion-footer-bar align-title="left" class="bar-stable">

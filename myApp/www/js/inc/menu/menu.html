@@ -12,23 +12,20 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="app.login()">
-          Login
-        </ion-item>
         <ion-item nav-clear menu-close href="#/app/results">
-          resultaten
+         Mijn resultaten
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/movies">
-          Oefeningen
+          Uitleg over de oefeningen
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/data">
-          Dagelijks schema  
+          Mijn schema van vandaag
         </ion-item>
         <ion-item nav-clear menu-close href="#app/tips">
           Tips voor na de cursus
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/goals">
-          Dagelijkse doelen
+          Mijn doel van vandaag
         </ion-item>
         <ion-item nav-clear menu-close href="#app/score">
           Mijn score
@@ -37,7 +34,12 @@
           {{item.text }}
         </ion-checkbox>
         <div class="text-center">
-          <img class="logo-size" src="img/DF-logo.png">  
+
+        <svg class="line-menu" viewBox="0 0 300 600" width="300px" height="420px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+          <path d="M10 80 Q 95 10 180 80" stroke="#334344" stroke-width="{{app.lineWidth}}" fill="transparent"/>
+
+        </svg>
         </div>
       </ion-list>
     </ion-content>

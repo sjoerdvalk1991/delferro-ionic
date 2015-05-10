@@ -2,7 +2,7 @@ var app = angular.module('results.controller', ['app.controller', 'pickadate']);
 
 var resultsController = function($scope, $ionicModal, $ionicLoading, $timeout){
   var _this = this;
-  _this.results = JSON.parse(localStorage.getItem('dailyData'));
+  _this.results = JSON.parse(localStorage.getItem('dailyData')).reverse();
   $ionicModal.fromTemplateUrl('js/states/results/date.html', 
       function(modal) {
           $scope.datemodal = modal;
@@ -58,9 +58,11 @@ var resultsController = function($scope, $ionicModal, $ionicLoading, $timeout){
     
       // console.log(dateArray);
       localStorage.setItem('calenderData', JSON.stringify(dateArray));
+    
   }
 
   this.dateFix();
+
   
 
   this.closedateModal = function(modal) {
@@ -84,10 +86,12 @@ var resultsController = function($scope, $ionicModal, $ionicLoading, $timeout){
       }
     }if (c == 0){
       $scope.datepicker = 'Het schema is op deze datum niet ingevuld';
-      _this.results = JSON.parse(localStorage.getItem('dailyData'));
+      _this.results = JSON.parse(localStorage.getItem('dailyData')).reverse();
     }
 
   };
+
+
   
 };
 

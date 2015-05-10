@@ -21,12 +21,32 @@
   text-align: center;
 }
 
+.date-result{
+  font-size: 18px;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.thumbnail-p{
+  float: left;
+  position: relative;
+  margin-right: 10px;
+  text-transform: uppercase;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #1abc9c !important;
+}
+
 .pos-rel{
   position: relative;
 }
 
 .checked-date{
-  background-color: #2ecc71 !important;  
+  background-color: #26C281 !important;  
 }
 
 .bg-white{
@@ -57,6 +77,15 @@
   position: absolute;
   left: 53%;
   top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.line-menu{
+  position: absolute;
+  left: 60%;
+  top: 170%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
@@ -135,6 +164,7 @@ h1.title{
 
 h2{
   font-family: 'Roboto', cursive !important;
+  font-size: 22px;
 }
 
 h3.header{
@@ -157,7 +187,7 @@ h3.header{
 }
 
 .goalprog{
-  border: 1px solid #2ecc71 !important; 
+  border: 1px solid #26C281 !important; 
   margin-left: 20px;
   margin-right: 20px;
   padding-top: 5px;
@@ -166,7 +196,7 @@ h3.header{
 }
 
 .goalbar{
-  background-color: #2ecc71 !important;
+  background-color: #26C281 !important;
   margin-top: -24px;
   z-index: -2;
 }
@@ -233,6 +263,65 @@ h3.header{
   margin-top: 30px;
 }
 
+.chart {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 700px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: linear-gradient(to top, rgba(555, 555, 555, 0.1) 2%, rgba(555, 555, 555, 0) 2%);
+  background-size: 100% 50px;
+  background-position: left top;
+}
+.chart li {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  height: 200px;
+}
+.chart span {
+  margin: 0 1em;
+  display: block;
+  position: relative;
+  background: rgba(209, 236, 250, 0.75);
+  animation: draw 1s ease-in-out;
+}
+.chart span:before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding: 5px 1em 0;
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  content: attr(title);
+  word-wrap: break-word;
+}
+
+.text-left{
+  text-align: left !important;
+}
+
+.bar-count{
+  position: absolute;
+  background: none !important;
+  left: 0;
+  bottom: 0;
+  color: white;
+}
+
+@keyframes draw {
+  0% {
+    height: 0;
+  }
+}
+
+
+
+
 .pickadate-cell .pickadate-enabled{
   color: #fff !important;
 }
@@ -257,7 +346,7 @@ h3.header{
 .button.button-positive{
   background-color: none !important;
   background: transparent !important;
-  border-color: #2ecc71 !important;
+  border-color: #26C281 !important;
 }
 
 .button.button-assertive{
@@ -782,6 +871,14 @@ ion-slide .box{
   letter-spacing: 1.20000004768372px;
 }
 
+.popup-buttons{
+  background-color: #1abc9c !important;
+}
+
+.popup-buttons .button{
+  border-color: #1abc9c !important;
+}
+
 .content {
 	width: 95%;
 	margin-left: 3%;
@@ -845,7 +942,8 @@ ion-slide .box{
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
-  width: 93%;
+  width: 100%;
+  margin-left: -10px !important;
   height: 200px;
   top: 0;
 }

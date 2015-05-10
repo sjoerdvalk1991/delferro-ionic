@@ -20,12 +20,13 @@
     <div class="mt-44">  
     	<ion-list id="staggered-test">
   	    <a ng-repeat="result in resultsCtrl.results" class="text-nodeco" href="#/app/result/{{result.date}}">
-  	      <ion-item class="item item-thumbnail-left">
-             <p class="resultcloud">
-              <span class="after"></span>
-             </p>
-  	        <h2>Datum: {{result.date}}</h2>
-  	        <p>Dagelijks resultaat</p>
+  	      <ion-item class="item thumbnail-left">
+            <p class="thumbnail-p">
+            <span class="date-result">{{result.day}}</span>
+             
+            </p>
+  	         <h2>{{result.date}}</h2>
+  	        <h2>Eindscore: {{result.points}}</h2>
   	      </ion-item>
   	    </a>
       </ion-list>
