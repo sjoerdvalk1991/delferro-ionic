@@ -2,13 +2,13 @@ var app = angular.module('score.controller', ['app.controller']);
 
 var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoading){
 	var _this = this;
-	
+
 	this.score = {};
 	this.lineWidth = 0;
 
 	this.getPoints = function(){
 
-		if(localStorage.getItem('dailyPoints')){  
+		if(localStorage.getItem('dailyPoints')){
 
 			var points = JSON.parse(localStorage.getItem('dailyPoints'));
 
@@ -16,8 +16,8 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 
 		}else{
 			return 0;
-		}	
-		
+		}
+
 	}
 
 	this.countUp = function(){
@@ -26,9 +26,9 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 		function hideSilverButton(){
       $('.silver-section').animo( {
     	animation: 'fadeOutRight', duration: 0.5}, function() {
-      	$('.silver-section').hide(); 		
+      	$('.silver-section').hide();
     	});
-    };	
+    };
 
 		function stopAnimate(){
 				$('.line').animate({top: '40%'});
@@ -39,9 +39,9 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 
       	hideSilverButton();
 
-	        	
+
   	}
-			
+
 		$('#countdown')
 			.prop('number', _this.score)
 	  	.animateNumber(
@@ -51,21 +51,23 @@ var scoreController = function($scope, $state, $rootScope, $timeout, $ionicLoadi
 		        var target = $(tween.elem),
 	            rounded_now = Math.round(now);
 	            $('.line').animate({top: '50%'});
-	            	_this.lineWidth++;
+	            $scope.$apply(); {
+	            	_this.lineWidth = (_this.lineWidth +  0.1);
+	            }
 	            	console.log(_this.lineWidth);
 	 						$('.line').animate({top: '40%'});
 		        target.text(now === tween.end ? stopAnimate() : rounded_now);
-		        	
+
 		      }
 		    },
 		    4000,
 		    'linear'
 	  	)
 
-	  	
 
 
-		
+
+
 	}
 
 	this.score = _this.getPoints();

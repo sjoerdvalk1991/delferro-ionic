@@ -24,16 +24,16 @@
   <div class="text-center">
     <ul class="chart">
       <li>
-        <span style="height:5%; background-color: #d62728;" title="Stotteren"><span class="bar-count">15x</span></span>
+        <span style="height:{{resultCtrl.stutterHeight}}%; background-color: #d62728;" title="Stotteren"><span class="bar-count">{{resultCtrl.result.stutter}}X</span></span>
       </li>
       <li>
-        <span style="height:70%; background-color: #98df8a;" title="Stoppen"><span class="bar-count">15x</span></span>
+        <span style="height:{{resultCtrl.stopHeight}}%;; background-color: #98df8a;" title="Stoppen"><span class="bar-count">{{resultCtrl.result.stop}}X</span></span>
       </li>
       <li>
-        <span style="height:50%; background-color: #2ca02c;" title="Telefoneren"><span class="bar-count">15x</span></span>
+        <span style="height:{{resultCtrl.telephoneHeight}}%; background-color: #2ca02c;" title="Telefoneren"><span class="bar-count">{{resultCtrl.result.telephone}}X</span></span>
       </li>
       <li>
-        <span style="height:15%; background-color: #2ca02c;" title="Uitdagingen"><span class="bar-count">15x</span></span>
+        <span style="height:{{resultCtrl.challengeHeight}}%; background-color: #2ca02c;" title="Uitdagingen"><span class="bar-count">{{resultCtrl.result.challenge}}X</span></span>
       </li>
     </ul> 
     <!-- <div class="" id="chart">

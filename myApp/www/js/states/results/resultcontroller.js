@@ -4,6 +4,10 @@ var resultController = function(params, $state){
   var _this = this;
   this.result = {};
   this.goalText = {};
+  this.stutterHeight = 0;
+  this.stopHeight = 0;
+  this.telephoneHeight = 0;
+  this.challengeHeight = 0;
   this.goalCount = {};
   this.results = JSON.parse(localStorage.getItem('dailyData'));
 
@@ -15,6 +19,8 @@ var resultController = function(params, $state){
         	return results[i];
       }
     }
+
+    
   }
 
   this.goalCheck = function(){
@@ -28,7 +34,18 @@ var resultController = function(params, $state){
     }else{
 
     }
-  }  
+  }
+  
+  this.heightFor = function(){
+    console.log('test');
+    _this.stutterHeight = (_this.result.stutter * 10);
+    _this.stopHeight =  (_this.result.stop * 10);
+    _this.telephoneHeight =  (_this.result.telephone * 10);
+    _this.challengeHeight = (_this.result.challenge * 10);
+  }
+
+  
+
 
 //   this.drawChart = function(){
 //     d3.select("svg").remove();
@@ -114,6 +131,7 @@ var resultController = function(params, $state){
   }
 
   this.result = _this.resultCheck(params);
+  this.heightFor();
   // this.drawChart();
 };  
 
