@@ -50,43 +50,53 @@ var resultController = function(params, $state, $scope, $timeout){
   }
   
     this.barChart = function(){
-      $('#bar-1').animo( {
+      var barOne = $('#bar-1');
+      $(barOne).show();
+      $(barOne).animo( {
         animation: 'fadeInLeft', duration: 0.5}, function() {
+          progress(barOne);
+          $('#bar-2').show();
           $('#bar-2').animo( {
             animation: 'fadeInLeft', duration: 0.5}, function() {
+             $('#bar-3').show();
              $('#bar-3').animo( {
             animation: 'fadeInLeft', duration: 0.5}, function() {
+              $('#bar-4').show();
               $('#bar-4').animo( {
             animation: 'fadeInLeft', duration: 0.5}, function() {
           })
 
     
 
-    $timeout(function () {
-      $('.bar-percentage[data-percentage]').each(function () {
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr('data-percentage'));
-        $({countNum: 0}).animate({countNum: percentage}, {
-          duration: 1000,
-          easing:'linear',
-
-          step: function() {
-            // What todo on every count
-          var pct = '';
-          if(percentage == 0){
-            pct = Math.floor(this.countNum) + '%';
-          }else{
-            pct = Math.floor(this.countNum+1) + '%';
-          }
-           progress.siblings().children().css('width',pct);
-          }
-        });
-      });
-    }, 600);
+   
 
       })
       })
-      })     
+      })
+
+      function progress(barOne){
+         
+          $('.bar-percentage[data-percentage]').each(function () {
+            var progress = $(this);
+            var percentage = Math.ceil($(this).attr('data-percentage'));
+            $({countNum: 0}).animate({countNum: percentage}, {
+              duration: 1000,
+              easing:'linear',
+
+              step: function() {
+                // What todo on every count
+              var pct = '';
+              if(percentage == 0){
+                pct = Math.floor(this.countNum) + '%';
+              }else{
+                pct = Math.floor(this.countNum+1) + '%';
+              }
+               progress.siblings().children().css('width',pct);
+              }
+            });
+          });
+        }
+      
     }
   
 

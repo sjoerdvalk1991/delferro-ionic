@@ -287,9 +287,9 @@ input[readonly]:not(.cloned-text-input){
   padding-left: 10px;
 }
 
-/*#bar-1, #bar-2, #bar-3, #bar-4{
+#bar-1, #bar-2, #bar-3, #bar-4{
   display: none;
-}*/
+}
 
 .neg-mt-5{
   margin-top: -5px;
