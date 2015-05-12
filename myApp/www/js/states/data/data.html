@@ -5,152 +5,94 @@
   </ion-nav-buttons>
   <ion-content class="has-header text-center">
   <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Aantal keer gestotterd</h3>
-    </div>
-  </div>  
-  <div class="row">
-    <div class="col col-10 br-100">
-      <button class="button-block left button button-positive icon ion-minus" ng-click="dataCtrl.decrease('stotteren')"></button>
-    </div>
-    <p class="pt-stutter">
-      <span class="points-stutter">Punten gehalveerd</span>
-      <span class="after-stutter"></span>
-    </p> 
-    <div class="col col-80">
-      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.stutter}}</h2>
-    </div>
-    <p class="pt-stutter-10">
-      <span class="points-stutter-10">Punten verdubbeld</span>
-      <span class="after-stutter-10"></span>
-    </p>
-    <div class="col col-10 br-100"> 
-      <button class="button-block right button button-assertive icon ion-plus" ng-click="dataCtrl.increase('stotteren')"></button>
-    </div>
-  </div>
-    <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Aantal keer getelefoneerd</h3>
-    </div>
-  </div> 
-  <div class="row">
-    <div class="col col-10 br-100">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('telefoneren')"></button>
-    </div>
-    <p class="pt-tel">
-      <span class="points-stutter">{{dataCtrl.telephonePoint}} ptn!</span>
-      <span class="after-stutter"></span>
-    </p> 
-    <div class="col col-80">
-      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.telephone}}</h2>
-    </div>
-    <p class="pt-tel-10">
-      <span class="points-stutter-10">-10 ptn</span>
-      <span class="after-stutter-10"></span>
-    </p>
-    <div class="col col-10 br-100"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('telefoneren')"></button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Aantal keer gestopt</h3>
-    </div>
-  </div>     
-  <div class="row">
-    <div class="col col-10 br-100">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('stoppen')"></button>
-    </div>
-    <p class="pt--10">
-      <span class="points-10">-10 ptn!</span>
-      <span class="after-10"></span>
-    </p>
-    <div class="col col-80">
-      <h2 class="size-xxl text-center  mtxxl">{{dataCtrl.stop}}</h2>
-    </div>
-    <p class="pt-10">
-      <span class="points">{{dataCtrl.stopPoint}} ptn!</span>
-      <span class="after"></span>
-    </p>
-    <div class="col col-10 br-100"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('stoppen')"></button>
-    </div>
-  </div> 
-   <div class="row">
-    <div class="col col text-center">
-      <h3 class="header">Aantal uitdagingen</h3>
-    </div>
-  </div>    
-  <div class="row">
-    <div class="col col-10 br-100">
-      <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
-    </div>
-     <p class="ch--10">
-      <span class="points-10">-10 ptn!</span>
-      <span class="after-10"></span>
-    </p>
-    <div class="col col-40">
-      <h2 class="size-xxl text-center mtxxl">{{dataCtrl.challenge}}</h2>
-    </div>
-    <p class="ch-10">
-      <span class="points">{{dataCtrl.challengePoint}} ptn!</span>
-      <span class="after"></span>
-    </p>
-    <div class="col col-10 br-100"> 
-      <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.increase('uitdaging')"></button>
-    </div>
-  </div>
-  <div class="goal-section">
-    <div class="row" style="margin-top: -20px;">
-      <div class="col col text-center">
-        <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
+    <div class="col col-50">
+      <div class="" style="background-color: #FF6E5E; border-radius: 5px;">
+      <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stotteren')"><span class="link-count-size ion-plus"></span></a> 
+      <h3 class="header mt-zero">Stotters</h3>
+      <h2 class="link-count-size text-center">{{dataCtrl.stutter}}</h2>  
+      <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stotteren')"><span class="link-count-size ion-minus"></span></a> 
       </div>
     </div>
-     <div class="row">
-      <div class="col col-10 br-100">
-        <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
+     <div class="col col-50">
+      <div class="" style="background-color: #B5DDA4; border-radius: 5px;">
+        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('telefoneren')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Getelefoneerd</h3>
+        <h2 class="link-count-size text-center">{{dataCtrl.telephone}}</h2>
+        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('telefoneren')"><span class="link-count-size ion-minus"></span></a>    
       </div>
-       <p class="ch--10">
-        <span class="points-10">-10 ptn!</span>
-        <span class="after-10"></span>
+    </div>
+  </div>
+  <div class="row mts"> 
+    <div class="col col-50">
+      <div class="" style="background-color: #3E6990; border-radius: 5px;">
+        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stoppen')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Gestopt</h3>
+        <h2 class="link-count-size text-center">{{dataCtrl.stop}}</h2>
+        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stoppen')"><span class="link-count-size ion-minus"></span></a>      
+      </div>
+    </div>
+     <div class="col col-50">
+      <div class="" style="background-color: #1abc9c; border-radius: 5px;">
+        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('Uitdagingen')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Uitdagingen</h3>
+        <h2 class="link-count-size text-center">{{dataCtrl.challenge}}</h2>
+         <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('Uitdagingen')"><span class="link-count-size ion-minus"></span></a>    
+      </div>
+    </div>
+  </div>
+  <div class="under-section">
+    <div class="goal-section">
+      <div class="row" style="margin-top: -20px;">
+        <div class="col col text-center">
+          <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col col-10 br-100">
+          <button class="button-block left button button-assertive icon ion-minus" ng-click="dataCtrl.decrease('uitdaging')"></button>
+        </div>
+         <p class="ch--10">
+          <span class="points-10">-10 ptn!</span>
+          <span class="after-10"></span>
+        </p>
+        <div class="col col-40">
+          <h2 class="size-xxl goalprog pos-rel text-center mtxxl">Nog {{dataCtrl.reachedGoalCount}} keer vandaag
+            <div class="goalbar" style="height: 100%; position: absolute;"></div>
+          </h2>
+        </div>
+        <div class="col col-10 br-100"> 
+          <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.goalIncrease()"></button>
+        </div>
+      </div>
+    </div>
+    <div class="slide-up-part">
+      <p class="goal-10">
+        <span class="points">250 ptn!</span>
+        <span class="after"></span>
       </p>
-      <div class="col col-40">
-        <h2 class="size-xxl goalprog pos-rel text-center mtxxl">Nog {{dataCtrl.reachedGoalCount}} keer vandaag
-          <div class="goalbar" style="height: 100%; position: absolute;"></div>
-        </h2>
-      </div>
-      <div class="col col-10 br-100"> 
-        <button class="button-block right button button-positive icon ion-plus" ng-click="dataCtrl.goalIncrease()"></button>
-      </div>
-    </div>
-  </div>
-  <div class="slide-up-part">
-    <p class="goal-10">
-      <span class="points">250 ptn!</span>
-      <span class="after"></span>
-    </p>
-    <div>
-      <p class="pt-practise">
-        <span class="points-practise">100 ptn, Heel goed gedaan!</span>
-        <span class="after-practise"></span>
-      </p> 
-     <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
-        {{item.text }}
-      </ion-checkbox>
-      <p class="pt-consequent">
-        <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
-        <span class="after-consequent"></span>
-      </p> 
-        <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
-        {{item.text }}
-      </ion-checkbox>
-    </div>  
-    <div class="row">
-      <div class="col">
-        <button class="button button-block  button-positive" ng-click="dataCtrl.dayresultSaver()">
-        Resultaten opslaan
-        </button> 
+      <div>
+        <p class="pt-practise">
+          <span class="points-practise">100 ptn, Heel goed gedaan!</span>
+          <span class="after-practise"></span>
+        </p> 
+       <ion-checkbox ng-repeat="item in dataCtrl.practise" ng-model="item.checked" ng-change="dataCtrl.practiseChecker()" ng-checked="item.checked">
+          {{item.text }}
+        </ion-checkbox>
+        <p class="pt-consequent">
+          <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
+          <span class="after-consequent"></span>
+        </p> 
+          <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
+          {{item.text }}
+        </ion-checkbox>
       </div>  
+      <div class="row">
+        <div class="col">
+          <button class="button button-block  button-positive" ng-click="dataCtrl.dayresultSaver()">
+          Resultaten opslaan
+          </button> 
+        </div>  
+      </div>
     </div>
   </div>
   </ion-content>
