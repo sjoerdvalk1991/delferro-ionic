@@ -1,0 +1,44 @@
+#1abc9c;
+
+#3E6990;
+
+#FF6E5E;
+
+
+  <div class="row">
+    <div class="col col-50">
+      <div class="" style="background-color: #FF6E5E; border-radius: 3px;">
+      <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stotteren')"><span class="link-count-size ion-plus"></span></a> 
+      <h3 class="header mt-zero">Stotters</h3>
+      <h2 class="link-count-size header-count mts text-center">{{dataCtrl.stutter}}</h2>  
+      <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stotteren')"><span class="link-count-size ion-minus"></span></a> 
+      </div>
+    </div>
+     
+    <div class="col col-50">
+      <div class="" style="background-color: #3E6990; border-radius: 3px;">
+        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stoppen')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Gestopt</h3>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.stop}}</h2>
+        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stoppen')"><span class="link-count-size ion-minus"></span></a>      
+      </div>
+    </div>
+  </div>
+  <div class="row mts">
+    <div class="col col-50">
+      <div class="" style="background-color: #1abc9c; border-radius: 3px;">
+        <a class="text-center button-icon inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('telefoneren')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Getelefoneerd</h3>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.telephone}}</h2>
+        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('telefoneren')"><span class="link-count-size ion-minus"></span></a>    
+      </div>
+    </div> 
+     <div class="col col-50">
+      <div class="" style="background-color: #1abc9c; border-radius: 3px;">
+        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('Uitdagingen')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header  mt-zero">Uitdagingen</h3>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.challenge}}</h2>
+         <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('Uitdagingen')"><span class="link-count-size ion-minus"></span></a>    
+      </div>
+    </div>
+  </div>
