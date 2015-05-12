@@ -1,6 +1,6 @@
 var app = angular.module('result.controller', ['app.controller']);
 
-var resultController = function(params, $state){
+var resultController = function(params, $state, $scope, $timeout){
   var _this = this;
   this.result = {};
   this.goalText = {};
@@ -19,6 +19,8 @@ var resultController = function(params, $state){
         	return results[i];
       }
     }
+    console.log(_this.result);
+    
 
     
   }
@@ -38,11 +40,60 @@ var resultController = function(params, $state){
   
   this.heightFor = function(){
     console.log('test');
-    _this.stutterHeight = (_this.result.stutter * 10);
-    _this.stopHeight =  (_this.result.stop * 10);
-    _this.telephoneHeight =  (_this.result.telephone * 10);
-    _this.challengeHeight = (_this.result.challenge * 10);
+   
+      _this.stutterHeight = (_this.result.stutter * 10);
+      _this.stopHeight =  (_this.result.stop * 10);
+      _this.telephoneHeight =  (_this.result.telephone * 10);
+      _this.challengeHeight = (_this.result.challenge * 10);
+      
+  
   }
+  
+    this.barChart = function(){
+      $('#bar-1').animo( {
+        animation: 'fadeInLeft', duration: 0.5}, function() {
+          $('#bar-2').animo( {
+            animation: 'fadeInLeft', duration: 0.5}, function() {
+             $('#bar-3').animo( {
+            animation: 'fadeInLeft', duration: 0.5}, function() {
+              $('#bar-4').animo( {
+            animation: 'fadeInLeft', duration: 0.5}, function() {
+          })
+
+    
+
+    $timeout(function () {
+      $('.bar-percentage[data-percentage]').each(function () {
+        var progress = $(this);
+        var percentage = Math.ceil($(this).attr('data-percentage'));
+        $({countNum: 0}).animate({countNum: percentage}, {
+          duration: 1000,
+          easing:'linear',
+
+          step: function() {
+            // What todo on every count
+          var pct = '';
+          if(percentage == 0){
+            pct = Math.floor(this.countNum) + '%';
+          }else{
+            pct = Math.floor(this.countNum+1) + '%';
+          }
+           progress.siblings().children().css('width',pct);
+          }
+        });
+      });
+    }, 600);
+
+      })
+      })
+      })     
+    }
+  
+
+  this.result = _this.resultCheck(params);
+  this.heightFor();
+  this.barChart();
+  
 
   
 
@@ -130,11 +181,10 @@ var resultController = function(params, $state){
     }
   }
 
-  this.result = _this.resultCheck(params);
-  this.heightFor();
+  
   // this.drawChart();
 };  
 
 
-resultController.$inject = ['$stateParams', '$state'];
+resultController.$inject = ['$stateParams', '$state', '$scope', '$timeout'];
 app.controller('ResultCtrl', resultController);

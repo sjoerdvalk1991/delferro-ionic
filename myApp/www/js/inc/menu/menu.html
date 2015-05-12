@@ -16,22 +16,22 @@
     </div>
       <ion-list>
         <ion-item nav-clear menu-close href="#/app/results">
-         Mijn resultaten
+         <i class="icon-stats-bars ico prm"></i>Mijn resultaten
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/movies">
-          Uitleg over de oefeningen
+          <i class="icon-film ico prm"></i>Video's van de oefeningen
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/data">
-          Mijn schema van vandaag
+          <i class="icon-file-text ico prm"></i>Mijn schema van vandaag
         </ion-item>
         <ion-item nav-clear menu-close href="#app/tips">
-          Tips voor na de cursus
+          <i class="icon-bulb ico prm"></i>Tips voor na de cursus
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/goals">
-          Mijn doel van vandaag
+          <i class="icon-target ico prm"></i>Mijn doel van vandaag
         </ion-item>
         <ion-item nav-clear menu-close href="#app/score">
-          Mijn score
+         <i class="icon-trophy ico prm"></i>Mijn score
         </ion-item>
          <ion-checkbox ng-repeat="item in app.practise" ng-model="item.checked" ng-change="app.warning()" ng-checked="item.checked">
           {{item.text }}

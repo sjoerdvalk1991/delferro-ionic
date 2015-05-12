@@ -1,11 +1,124 @@
 /* Empty. Add your own CSS if you like */
 @import url(http://fonts.googleapis.com/css?family=Marck+Script);
-
+@import url(http://fonts.googleapis.com/css?family=Lato:400);
 
 @font-face {
     font-family: Roboto;
     src: url(RobotoCondensed-Regular.ttf);
-    font-weight: bold;
+    font-weight: normal;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon.eot?dnesoa');
+  src:url('fonts/icomoon.eot?#iefixdnesoa') format('embedded-opentype'),
+    url('fonts/icomoon.woff?dnesoa') format('woff'),
+    url('fonts/icomoon.ttf?dnesoa') format('truetype'),
+    url('fonts/icomoon.svg?dnesoa#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-film:before {
+  content: "\e913";
+}
+
+.icon-stats-bars:before {
+  content: "\e99c";
+}
+
+.icon-bulb:before {
+  content: "\e600";
+}
+
+.icon-target:before {
+    content: "\e9b3";
+}
+
+.icon-file-text:before {
+    content: "\e922";
+}
+
+.icon-trophy:before {
+    content: "\e99e";
+}
+
+#container { text-align: center; margin: 20px; }
+a { text-decoration: none; color: #EC5C93; }
+
+.bar-main-container {
+  margin: 10px auto;
+  width: 340px;
+  height: 50px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 0.8em;
+  color: #FFF;
+}
+
+.wrap { padding: 8px; }
+
+.bar-percentage {
+  float: left;
+  background: rgba(0,0,0,0.13);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 7px 0px;
+  width: 30%;
+}
+
+.bar-container {
+  float: right;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  height: 10px;
+  background: rgba(0,0,0,0.13);
+  width: 67%;
+  margin: 12px 0px;
+  overflow: hidden;
+}
+
+.bar-1 {
+  float: left;
+  background: #FFF;
+  height: 100%;
+  -webkit-border-radius: 10px 0px 0px 10px;
+  -moz-border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+
+/* COLORS */
+.azure   { background: #3E6990; }
+.emerald { background: #2CB299; }
+.violet  { background: #58a4b0; }
+.yellow  { background: #FF6E5E; }
+
+.ico{
+  font-size: 22px;
 }
 
 .img {
@@ -45,12 +158,17 @@
   background-color: #1abc9c !important;
 }
 
+.button{
+  font-family: 'Lato', sans-serif !important;
+}
+
 .pos-rel{
   position: relative;
 }
 
-.checked-date{
-  background-color: #26C281 !important;  
+.pickadate-enabled.checked-date{
+  background-color: #26C281 !important;
+  color: #fff !important;  
 }
 
 .bg-white{
@@ -107,25 +225,32 @@
       transform: translate(-50%, -50%);
 }
 
+.counter{
+  font-size: 30px;
+  font-family: 'Lato', sans-serif !important;
+  padding-right: 5px;
+}
+
 .size-xxl{
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Lato', sans-serif !important;
   color: #fff;
 }
 
 ::-webkit-input-placeholder {
-   color: #fff !important;
+   color: #2E3948 !important;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff !important; 
+   color: #2E3948 !important;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff !important;
+   color: #2E3948 !important;
 }
 
 :-ms-input-placeholder {  
-   color: #fff !important;  
+   color: #2E3948 !important;  
 }
 
 
@@ -137,7 +262,7 @@
 input[readonly]:not(.cloned-text-input){
   background-color: none;
   background: transparent;
-  color: #fff;
+  color: #2E3948 !important;
 }
 
 /*input{
@@ -151,7 +276,7 @@ input[readonly]:not(.cloned-text-input){
 }
 
 .text-white{
-  color: #fff !important;
+  color: #2E3948 !important;
 }
 
 .plxxl{
@@ -162,30 +287,43 @@ input[readonly]:not(.cloned-text-input){
   padding-left: 10px;
 }
 
+/*#bar-1, #bar-2, #bar-3, #bar-4{
+  display: none;
+}*/
+
 .neg-mt-5{
   margin-top: -5px;
 }
 
 .row + .row {
-  margin-top: -20px;
+  margin-top: -15px;
+}
+
+.daily-goal{
+  font-size: 22px;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .prxxl{
   padding-right: 25px;
 }
 
+.prm{
+  padding-right: 10px;
+}
+
 h1.title{
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 h2{
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
   font-size: 22px;
 }
 
 h3.header{
-  color: #fff;
-  font-family: 'Roboto', cursive !important;
+  color: #2E3948 !important;
+  font-family: 'Lato', sans-serif !important;
   font-size: 15px;
   font-weight: 300;
   margin-bottom: 0px;
@@ -206,14 +344,14 @@ h3.header{
   border: 1px solid #26C281 !important; 
   margin-left: 20px;
   margin-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   border-radius: 3px;
 }
 
 .goalbar{
   background-color: #26C281 !important;
-  margin-top: -24px;
+  margin-top: -33px;
   z-index: -2;
 }
 
@@ -222,7 +360,11 @@ h3.header{
 }
 
 .mtxxl{
-  margin-top: 20px !important;
+  margin-top: 10px !important;
+}
+
+.mt-neg{
+  margin-top: -10px !important;
 }
 
 .mtxl{
@@ -254,7 +396,7 @@ h3.header{
 }
 
 .content{
-  color: #fff;
+  color: #2E3948 !important;
 }
 
 .ion-navicon{
@@ -342,11 +484,11 @@ h3.header{
 
 
 .pickadate-cell .pickadate-enabled{
-  color: #fff !important;
+  color: #2E3948 !important;
 }
 
 .pickadate a:visited, .pickadate a {
-  color: #fff !important;
+  color: #2E3948 !important;
 }
 
 .pickadate-centered-heading{
@@ -358,8 +500,8 @@ h3.header{
 }
 
 .pickadate-cell .pickadate-active {
-  background-color: #eaeaea !important;
-  color: #000 !important;
+  color: #2E3948 !important;
+  color: #fff !important;
 }
 
 .button.button-positive{
@@ -367,9 +509,14 @@ h3.header{
   border-color: #1abc9c !important;
 }
 
+.button.button-blue{
+  background-color: #3E6990; 
+  border-color: #3E6990;
+}
+
 .button.button-assertive{
-  border-color: #FF6E5E !important;
-  background-color: #FF6E5E !important;
+  border-color: #58a4b0 !important;
+  background-color: #58a4b0 !important;
 }
 
 .modal {
@@ -389,17 +536,15 @@ h3.header{
 .item{
   background-color: none !important;
   background: transparent !important;
-  color: #fff !important;
+  color: #2E3948 !important;
+  border-color: #2E3948 !important;
 }
+
+
 
 h1.header{
-  color: #fff !important;
-  font-family: 'Roboto', cursive !important;
-}
-
-h2{
-  color: #fff;
-  font-family: 'Roboto', cursive !important;
+  color: #2E3948 !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .slider { 
@@ -412,38 +557,53 @@ h2{
 
 .item {
   color: #000;
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .item p{
   color: #fff;
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .item a{
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .item-complex .item-content, .item-radio .item-content{
   color: #fff !important;
   background-color: none !important;
   background: transparent !important;
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .item-stacked-label input, .item-stacked-label textarea{
-  color: #fff !important;
+  color: #2E3948 !important;
   background-color: none !important;
   background: transparent !important;
 }
 
 .input-label{
-  color: #fff;
-}
+  color: #2E3948 !important;}
 
 .item .item-content{
-  font-family: 'Roboto', cursive !important;
-  color: #fff !important;
+  font-family: 'Lato', sans-serif !important;
+  color: #2E3948 !important;
+}
+
+label.item.item-checkbox{
+  text-align: left;
+  font-weight: bold;
+  padding: 10px 10px 10px 50px !important;
+  font-size: 12px;
+  border-color: #F2E8D8 !important;
+}
+
+.menu-background label.item.item-checkbox{
+  text-align: left;
+  font-weight: bold;
+  padding: 10px 10px 10px 50px !important;
+  font-size: 14px;
+  border-color: #F2E8D8 !important;
 }
 
 .video-container {
@@ -918,7 +1078,7 @@ ion-slide .box{
 
 .popup-title{
   color: rgb(82, 101, 162);
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
   font-size: 19px;
   font-weight: 300;
   margin-bottom: 0px;
@@ -1011,7 +1171,7 @@ ion-slide .box{
 }
 
 .slider-pager .slider-pager-page {
-  color: #fff;
+  color: #2E3948 !important;
 }
 
 .lay-over > span{
@@ -1066,7 +1226,7 @@ ion-slide .box{
 
 
 .tab-item{
-  font-family: 'Roboto', cursive !important;
+  font-family: 'Lato', sans-serif !important;
 }
 
 h1{
