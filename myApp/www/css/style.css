@@ -57,6 +57,18 @@
   background-color: #ffffff;
 }
 
+/*.button-icon{
+  border-radius: 100%;
+  border: 2px solid #fff;
+}*/
+
+.header-count{
+  background-color: #fff;
+  width: 50px;
+  margin: 0 auto;
+  color: #2E3948 !important
+}
+
 .score-p{
   display: inline-block;
   margin-top: 20px;
@@ -351,13 +363,13 @@ h3.header{
 }
 
 .button.button-positive{
-  background-color: none !important;
-  background: transparent !important;
-  border-color: #26C281 !important;
+  background-color: #1abc9c !important;
+  border-color: #1abc9c !important;
 }
 
 .button.button-assertive{
   border-color: #FF6E5E !important;
+  background-color: #FF6E5E !important;
 }
 
 .modal {
@@ -645,6 +657,7 @@ h2{
   top: 35px;
 }
 
+
 .pt-consequent .after-consequent:after{
   content: "";
   border: 30px solid transparent;
@@ -846,6 +859,10 @@ h2{
 
 .menu-background{
   background-color: #2E3948;
+}
+
+.text-dark{
+  color: #2E3948 !important;
 }
 
 /*.under-section{

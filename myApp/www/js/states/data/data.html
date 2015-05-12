@@ -6,36 +6,37 @@
   <ion-content class="has-header text-center">
   <div class="row">
     <div class="col col-50">
-      <div class="" style="background-color: #FF6E5E; border-radius: 5px;">
+      <div class="" style="background-color: #FF6E5E; border-radius: 3px;">
       <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stotteren')"><span class="link-count-size ion-plus"></span></a> 
       <h3 class="header mt-zero">Stotters</h3>
-      <h2 class="link-count-size text-center">{{dataCtrl.stutter}}</h2>  
+      <h2 class="link-count-size header-count mts text-center">{{dataCtrl.stutter}}</h2>  
       <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stotteren')"><span class="link-count-size ion-minus"></span></a> 
       </div>
     </div>
-     <div class="col col-50">
-      <div class="" style="background-color: #B5DDA4; border-radius: 5px;">
-        <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('telefoneren')"><span class="link-count-size ion-plus"></span></a>
-        <h3 class="header mt-zero">Getelefoneerd</h3>
-        <h2 class="link-count-size text-center">{{dataCtrl.telephone}}</h2>
-        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('telefoneren')"><span class="link-count-size ion-minus"></span></a>    
-      </div>
-    </div>
-  </div>
-  <div class="row mts"> 
+     
     <div class="col col-50">
-      <div class="" style="background-color: #3E6990; border-radius: 5px;">
+      <div class="" style="background-color: #3E6990; border-radius: 3px;">
         <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('stoppen')"><span class="link-count-size ion-plus"></span></a>
         <h3 class="header mt-zero">Gestopt</h3>
-        <h2 class="link-count-size text-center">{{dataCtrl.stop}}</h2>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.stop}}</h2>
         <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('stoppen')"><span class="link-count-size ion-minus"></span></a>      
       </div>
     </div>
+  </div>
+  <div class="row mts">
+    <div class="col col-50">
+      <div class="" style="background-color: #1abc9c; border-radius: 3px;">
+        <a class="text-center button-icon inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('telefoneren')"><span class="link-count-size ion-plus"></span></a>
+        <h3 class="header mt-zero">Getelefoneerd</h3>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.telephone}}</h2>
+        <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('telefoneren')"><span class="link-count-size ion-minus"></span></a>    
+      </div>
+    </div> 
      <div class="col col-50">
-      <div class="" style="background-color: #1abc9c; border-radius: 5px;">
+      <div class="" style="background-color: #1abc9c; border-radius: 3px;">
         <a class="text-center  inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.increase('Uitdagingen')"><span class="link-count-size ion-plus"></span></a>
-        <h3 class="header mt-zero">Uitdagingen</h3>
-        <h2 class="link-count-size text-center">{{dataCtrl.challenge}}</h2>
+        <h3 class="header  mt-zero">Uitdagingen</h3>
+        <h2 class="link-count-size header-count mts text-center">{{dataCtrl.challenge}}</h2>
          <a class="text-center inline-block text-deco-none white mts mbs" href="" ng-click="dataCtrl.decrease('Uitdagingen')"><span class="link-count-size ion-minus"></span></a>    
       </div>
     </div>
@@ -44,7 +45,7 @@
     <div class="goal-section">
       <div class="row" style="margin-top: -20px;">
         <div class="col col text-center">
-          <h3  class="header">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
+          <h3  class="header text-dark">Dagelijks doel: {{dataCtrl.dailyGoal}}</h3>
         </div>
       </div>
        <div class="row">
@@ -56,7 +57,7 @@
           <span class="after-10"></span>
         </p>
         <div class="col col-40">
-          <h2 class="size-xxl goalprog pos-rel text-center mtxxl">Nog {{dataCtrl.reachedGoalCount}} keer vandaag
+          <h2 class="size-xxl goalprog pos-rel text-center mtxxl text-dark">Nog {{dataCtrl.reachedGoalCount}} keer vandaag
             <div class="goalbar" style="height: 100%; position: absolute;"></div>
           </h2>
         </div>
@@ -82,7 +83,7 @@
           <span class="points-consequent">100 ptn, Heel goed gedaan!</span>
           <span class="after-consequent"></span>
         </p> 
-          <ion-checkbox ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
+          <ion-checkbox class="" ng-repeat="item in dataCtrl.consequent" ng-model="item.checked" ng-change="dataCtrl.consequentChecker()" ng-checked="item.checked">
           {{item.text }}
         </ion-checkbox>
       </div>  
