@@ -10,7 +10,10 @@
     <header class="bar bar-header bar-stable">
       <h1 class="title">Menu</h1>
     </header>
-    <ion-content class="has-header">
+    <ion-content class="has-header menu-background">
+    <div class="text-center">
+      <img class="avatar mtm mbm" src="img/little-avatar.png">
+    </div>
       <ion-list>
         <ion-item nav-clear menu-close href="#/app/results">
          Mijn resultaten
@@ -33,14 +36,14 @@
          <ion-checkbox ng-repeat="item in app.practise" ng-model="item.checked" ng-change="app.warning()" ng-checked="item.checked">
           {{item.text }}
         </ion-checkbox>
-        <div class="text-center">
+       <!--  <div class="text-center">
 
         <svg class="line-menu" viewBox="0 0 300 600" width="300px" height="420px" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
           <path d="M10 80 Q 95 10 180 80" stroke="#334344" stroke-width="{{app.lineWidth}}" fill="transparent"/>
 
         </svg>
-        </div>
+        </div> -->
       </ion-list>
     </ion-content>
   </ion-side-menu>
