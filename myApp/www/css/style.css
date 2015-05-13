@@ -111,6 +111,41 @@ a { text-decoration: none; color: #EC5C93; }
   opacity: 1;
 }
 
+.icon-button{
+  padding-top: 20px;
+  width: 50px;
+  height: 50px;
+  margin: 0  auto;
+  display: table;
+  margin-bottom: -10px;
+}
+
+#Layer{
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+#Layer_1{
+  margin-left: 15px;
+}
+
+#Your_Icon{
+  margin-top: -10px;
+}
+
+
+.plus-button{
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.button-title{
+  font-size: 14px;
+}
+
 /* COLORS */
 .azure   { background: #3E6990; }
 .emerald { background: #2CB299; }
