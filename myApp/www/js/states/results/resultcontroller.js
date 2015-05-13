@@ -186,7 +186,7 @@ var resultController = function(params, $state, $scope, $timeout){
       plusDate(newResult);
       function plusDate(i){
         _this.result = results[i+1];
-        _this.drawChart();
+        _this.heightFor();
       }  
     }
   }
